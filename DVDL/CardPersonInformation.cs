@@ -4,7 +4,6 @@ namespace DVDL
 {
     public partial class CardPersonInformation : UserControl
     {
-
         public CardPersonInformation()
         {
             InitializeComponent();

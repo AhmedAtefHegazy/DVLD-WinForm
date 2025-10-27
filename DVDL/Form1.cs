@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace DVDL
 {
@@ -15,6 +7,12 @@ namespace DVDL
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void SMI_pepole_Click(object sender, System.EventArgs e)
+        {
+            Form PeopleManage = new FrmManagePeople();
+            PeopleManage.Show();
         }
     }
 }
