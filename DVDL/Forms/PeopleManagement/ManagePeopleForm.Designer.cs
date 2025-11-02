@@ -29,9 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DGVManagePeople = new System.Windows.Forms.DataGridView();
+            this.CMSManagePeople = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblRecordCount = new System.Windows.Forms.Label();
+            this.lblFilterPeopleBy = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnCloseManagePeopleForm = new System.Windows.Forms.Button();
+            this.btnAddPerson = new System.Windows.Forms.Button();
             this.personIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.secondNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,36 +52,19 @@
             this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imagePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMSManagePeople = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnCloseManagePeopleForm = new System.Windows.Forms.Button();
-            this.lblRecordCount = new System.Windows.Forms.Label();
-            this.btnAddPerson = new System.Windows.Forms.Button();
-            this.lblFilterPeopleBy = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).BeginInit();
             this.CMSManagePeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVDL.Properties.Resources.People_400;
-            this.pictureBox1.Location = new System.Drawing.Point(632, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(216, 151);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -115,6 +105,82 @@
             this.DGVManagePeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVManagePeople.Size = new System.Drawing.Size(1347, 359);
             this.DGVManagePeople.TabIndex = 2;
+            // 
+            // CMSManagePeople
+            // 
+            this.CMSManagePeople.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.CMSManagePeople.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.addNewPersonToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.sendEmailToolStripMenuItem,
+            this.phoneCallToolStripMenuItem});
+            this.CMSManagePeople.Name = "contextMenuStrip1";
+            this.CMSManagePeople.Size = new System.Drawing.Size(205, 314);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(201, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(201, 6);
+            // 
+            // lblRecordCount
+            // 
+            this.lblRecordCount.AutoSize = true;
+            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblRecordCount.Location = new System.Drawing.Point(12, 671);
+            this.lblRecordCount.Name = "lblRecordCount";
+            this.lblRecordCount.Size = new System.Drawing.Size(101, 25);
+            this.lblRecordCount.TabIndex = 4;
+            this.lblRecordCount.Text = "# Record: ";
+            // 
+            // lblFilterPeopleBy
+            // 
+            this.lblFilterPeopleBy.AutoSize = true;
+            this.lblFilterPeopleBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblFilterPeopleBy.Location = new System.Drawing.Point(12, 260);
+            this.lblFilterPeopleBy.Name = "lblFilterPeopleBy";
+            this.lblFilterPeopleBy.Size = new System.Drawing.Size(104, 26);
+            this.lblFilterPeopleBy.TabIndex = 6;
+            this.lblFilterPeopleBy.Text = "Filter By :";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(112, 265);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(157, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // btnCloseManagePeopleForm
+            // 
+            this.btnCloseManagePeopleForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCloseManagePeopleForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnCloseManagePeopleForm.Image = global::DVDL.Properties.Resources.Close_32;
+            this.btnCloseManagePeopleForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseManagePeopleForm.Location = new System.Drawing.Point(1184, 668);
+            this.btnCloseManagePeopleForm.Name = "btnCloseManagePeopleForm";
+            this.btnCloseManagePeopleForm.Size = new System.Drawing.Size(175, 52);
+            this.btnCloseManagePeopleForm.TabIndex = 3;
+            this.btnCloseManagePeopleForm.Text = "Close";
+            this.btnCloseManagePeopleForm.UseVisualStyleBackColor = true;
+            this.btnCloseManagePeopleForm.Click += new System.EventHandler(this.btnCloseManagePeopleForm_Click);
+            // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.Image = global::DVDL.Properties.Resources.Add_Person_72;
+            this.btnAddPerson.Location = new System.Drawing.Point(1230, 219);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(129, 78);
+            this.btnAddPerson.TabIndex = 5;
+            this.btnAddPerson.UseVisualStyleBackColor = true;
             // 
             // personIDDataGridViewTextBoxColumn
             // 
@@ -194,32 +260,13 @@
             this.countryIDDataGridViewTextBoxColumn.HeaderText = "CountryID";
             this.countryIDDataGridViewTextBoxColumn.Name = "countryIDDataGridViewTextBoxColumn";
             // 
-            // CMSManagePeople
-            // 
-            this.CMSManagePeople.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.CMSManagePeople.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.addNewPersonToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.sendEmailToolStripMenuItem,
-            this.phoneCallToolStripMenuItem});
-            this.CMSManagePeople.Name = "contextMenuStrip1";
-            this.CMSManagePeople.Size = new System.Drawing.Size(187, 292);
-            // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Image = global::DVDL.Properties.Resources.PersonDetails_32;
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
             this.showToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
             this.showToolStripMenuItem.Text = "Show Details";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(201, 6);
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // addNewPersonToolStripMenuItem
             // 
@@ -242,11 +289,6 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(201, 6);
-            // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = global::DVDL.Properties.Resources.send_email_32;
@@ -265,56 +307,15 @@
             // 
             this.peopleBindingSource.DataSource = typeof(PeopleBusinessLayer.People);
             // 
-            // btnCloseManagePeopleForm
+            // pictureBox1
             // 
-            this.btnCloseManagePeopleForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCloseManagePeopleForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.btnCloseManagePeopleForm.Image = global::DVDL.Properties.Resources.Close_32;
-            this.btnCloseManagePeopleForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseManagePeopleForm.Location = new System.Drawing.Point(1184, 668);
-            this.btnCloseManagePeopleForm.Name = "btnCloseManagePeopleForm";
-            this.btnCloseManagePeopleForm.Size = new System.Drawing.Size(175, 52);
-            this.btnCloseManagePeopleForm.TabIndex = 3;
-            this.btnCloseManagePeopleForm.Text = "Close";
-            this.btnCloseManagePeopleForm.UseVisualStyleBackColor = true;
-            this.btnCloseManagePeopleForm.Click += new System.EventHandler(this.btnCloseManagePeopleForm_Click);
-            // 
-            // lblRecordCount
-            // 
-            this.lblRecordCount.AutoSize = true;
-            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lblRecordCount.Location = new System.Drawing.Point(12, 671);
-            this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(101, 25);
-            this.lblRecordCount.TabIndex = 4;
-            this.lblRecordCount.Text = "# Record: ";
-            // 
-            // btnAddPerson
-            // 
-            this.btnAddPerson.Image = global::DVDL.Properties.Resources.Add_Person_72;
-            this.btnAddPerson.Location = new System.Drawing.Point(1230, 219);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(129, 78);
-            this.btnAddPerson.TabIndex = 5;
-            this.btnAddPerson.UseVisualStyleBackColor = true;
-            // 
-            // lblFilterPeopleBy
-            // 
-            this.lblFilterPeopleBy.AutoSize = true;
-            this.lblFilterPeopleBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lblFilterPeopleBy.Location = new System.Drawing.Point(12, 260);
-            this.lblFilterPeopleBy.Name = "lblFilterPeopleBy";
-            this.lblFilterPeopleBy.Size = new System.Drawing.Size(104, 26);
-            this.lblFilterPeopleBy.TabIndex = 6;
-            this.lblFilterPeopleBy.Text = "Filter By :";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(112, 265);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 21);
-            this.comboBox1.TabIndex = 7;
+            this.pictureBox1.Image = global::DVDL.Properties.Resources.People_400;
+            this.pictureBox1.Location = new System.Drawing.Point(632, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(216, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmManagePeople
             // 
@@ -334,10 +335,10 @@
             this.Name = "FrmManagePeople";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage People";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).EndInit();
             this.CMSManagePeople.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

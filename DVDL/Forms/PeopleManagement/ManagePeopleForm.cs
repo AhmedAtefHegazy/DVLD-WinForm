@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using DVDL.Forms.PeopleManagement;
 namespace DVDL
 {
     public partial class FrmManagePeople : Form
@@ -20,6 +21,13 @@ namespace DVDL
         private void btnCloseManagePeopleForm_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frmShowPerson = new FrmShowPersonForm();
+            frmShowPerson.ShowDialog();
+
         }
     }
 }
