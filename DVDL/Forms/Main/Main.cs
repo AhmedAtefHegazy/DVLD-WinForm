@@ -12,7 +12,7 @@ namespace DVDL
         private void SMI_pepole_Click(object sender, System.EventArgs e)
         {
             Form PeopleManage = new FrmManagePeople();
-            PeopleManage.Show();
+            PeopleManage.ShowDialog();
         }
     }
 }
