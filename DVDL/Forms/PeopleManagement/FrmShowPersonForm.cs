@@ -1,19 +1,18 @@
 ﻿using System.Windows.Forms;
-using PeopleBusinessLayer;
 
 namespace DVDL.Forms.PeopleManagement
 {
     public partial class FrmShowPersonForm : Form
     {
-        public FrmShowPersonForm(People Person)
+        public FrmShowPersonForm(int Person)
         {
             InitializeComponent();
             FillPersoninfo(Person);
         }
 
-        private void FillPersoninfo(People Person)
+        private void FillPersoninfo(int PersonID)
         {
-            cardPersonInformation1.FillPersonInfo(Person);
+            cardPersonInformation1.FillPersonInfo(PersonID);
         }
 
         private void btnCloseShowPersonForm_Click(object sender, System.EventArgs e)

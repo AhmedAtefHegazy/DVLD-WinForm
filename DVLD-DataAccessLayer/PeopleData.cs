@@ -7,7 +7,7 @@ namespace DVLD_DataAccessLayer
 {
     public class PeopleData
     {
-        private static SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
 
         // Get person by ID
         public static bool GetPersonByID(int PersonID, ref string FirstName, ref string SecondName
@@ -19,7 +19,7 @@ namespace DVLD_DataAccessLayer
             bool IsFound = false;
 
             string Query = "SELECT * FROM People WHERE PersonID = @PersonID";
-
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(Query, Connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
@@ -66,7 +66,7 @@ namespace DVLD_DataAccessLayer
             bool IsFound = false;
 
             string Query = "SELECT * FROM People WHERE NationalNo = @NationalNo";
-
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(Query, Connection);
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
 
@@ -124,7 +124,7 @@ namespace DVLD_DataAccessLayer
             @Email, @Gender, @ImagePath, @CountryID)
 
            SELECT SCOPE_IDENTITY()";
-
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(Query, Connection);
 
             command.Parameters.AddWithValue("@FirstName", FirstName);
@@ -189,7 +189,7 @@ namespace DVLD_DataAccessLayer
                                  CountryID = @CountryID,
                                  ImagePath = @ImagePath
                              WHERE PersonID = @PersonID;";
-
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(Query, Connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
@@ -234,6 +234,7 @@ namespace DVLD_DataAccessLayer
             int RowsAffected = 0;
 
             string Query = @"DELETE FROM People WHERE PersonID = @PersonID";
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(Query, Connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
@@ -262,7 +263,7 @@ namespace DVLD_DataAccessLayer
             DataTable DT = new DataTable();
 
             string Query = "SELECT * FROM People";
-
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand sqlCommand = new SqlCommand(Query, Connection);
 
             try
@@ -295,7 +296,7 @@ namespace DVLD_DataAccessLayer
             bool IsFound = false;
 
             string Query = @"SELECT 1 FROM People WHERE PersonID = @PersonID";
-
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(Query, Connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
