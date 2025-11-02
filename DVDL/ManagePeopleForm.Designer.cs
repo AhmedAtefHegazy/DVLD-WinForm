@@ -285,9 +285,9 @@
             this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lblRecordCount.Location = new System.Drawing.Point(12, 671);
             this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(112, 25);
+            this.lblRecordCount.Size = new System.Drawing.Size(101, 25);
             this.lblRecordCount.TabIndex = 4;
-            this.lblRecordCount.Text = "# Record: 0";
+            this.lblRecordCount.Text = "# Record: ";
             // 
             // btnAddPerson
             // 

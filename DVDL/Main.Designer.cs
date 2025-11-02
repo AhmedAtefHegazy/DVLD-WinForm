@@ -1,6 +1,6 @@
 ﻿namespace DVDL
 {
-    partial class Form1
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@
             this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(147, 104);
             this.accountSettingsToolStripMenuItem.Text = "AccountSettings";
             // 
-            // Form1
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,8 +100,8 @@
             this.ClientSize = new System.Drawing.Size(1465, 873);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FrmMain";
+            this.Text = "Main";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
