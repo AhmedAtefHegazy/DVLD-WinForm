@@ -39,19 +39,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnCloseManagePeopleForm = new System.Windows.Forms.Button();
             this.btnAddPerson = new System.Windows.Forms.Button();
-            this.personIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secondNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thirdNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fourthNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nationalNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagePathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +47,19 @@
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThirdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FourthName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImagePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).BeginInit();
             this.CMSManagePeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
@@ -85,19 +85,19 @@
             this.DGVManagePeople.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DGVManagePeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVManagePeople.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.personIDDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.secondNameDataGridViewTextBoxColumn,
-            this.thirdNameDataGridViewTextBoxColumn,
-            this.fourthNameDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.dateOfBirthDataGridViewTextBoxColumn,
-            this.nationalNoDataGridViewTextBoxColumn,
-            this.phoneNumberDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.genderDataGridViewTextBoxColumn,
-            this.imagePathDataGridViewTextBoxColumn,
-            this.countryIDDataGridViewTextBoxColumn});
+            this.PersonID,
+            this.FirstName,
+            this.SecondName,
+            this.ThirdName,
+            this.FourthName,
+            this.Address,
+            this.DateOfBirth,
+            this.NationalNo,
+            this.PhoneNumber,
+            this.Email,
+            this.Gender,
+            this.ImagePath,
+            this.CountryID});
             this.DGVManagePeople.ContextMenuStrip = this.CMSManagePeople;
             this.DGVManagePeople.DataSource = this.peopleBindingSource;
             this.DGVManagePeople.Location = new System.Drawing.Point(12, 303);
@@ -105,6 +105,7 @@
             this.DGVManagePeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVManagePeople.Size = new System.Drawing.Size(1347, 359);
             this.DGVManagePeople.TabIndex = 2;
+            this.DGVManagePeople.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVManagePeople_CellContentClick);
             // 
             // CMSManagePeople
             // 
@@ -119,7 +120,7 @@
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.CMSManagePeople.Name = "contextMenuStrip1";
-            this.CMSManagePeople.Size = new System.Drawing.Size(205, 314);
+            this.CMSManagePeople.Size = new System.Drawing.Size(187, 292);
             // 
             // toolStripMenuItem1
             // 
@@ -182,84 +183,6 @@
             this.btnAddPerson.TabIndex = 5;
             this.btnAddPerson.UseVisualStyleBackColor = true;
             // 
-            // personIDDataGridViewTextBoxColumn
-            // 
-            this.personIDDataGridViewTextBoxColumn.DataPropertyName = "PersonID";
-            this.personIDDataGridViewTextBoxColumn.HeaderText = "PersonID";
-            this.personIDDataGridViewTextBoxColumn.Name = "personIDDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // secondNameDataGridViewTextBoxColumn
-            // 
-            this.secondNameDataGridViewTextBoxColumn.DataPropertyName = "SecondName";
-            this.secondNameDataGridViewTextBoxColumn.HeaderText = "SecondName";
-            this.secondNameDataGridViewTextBoxColumn.Name = "secondNameDataGridViewTextBoxColumn";
-            // 
-            // thirdNameDataGridViewTextBoxColumn
-            // 
-            this.thirdNameDataGridViewTextBoxColumn.DataPropertyName = "ThirdName";
-            this.thirdNameDataGridViewTextBoxColumn.HeaderText = "ThirdName";
-            this.thirdNameDataGridViewTextBoxColumn.Name = "thirdNameDataGridViewTextBoxColumn";
-            // 
-            // fourthNameDataGridViewTextBoxColumn
-            // 
-            this.fourthNameDataGridViewTextBoxColumn.DataPropertyName = "FourthName";
-            this.fourthNameDataGridViewTextBoxColumn.HeaderText = "FourthName";
-            this.fourthNameDataGridViewTextBoxColumn.Name = "fourthNameDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            // 
-            // nationalNoDataGridViewTextBoxColumn
-            // 
-            this.nationalNoDataGridViewTextBoxColumn.DataPropertyName = "NationalNo";
-            this.nationalNoDataGridViewTextBoxColumn.HeaderText = "NationalNo";
-            this.nationalNoDataGridViewTextBoxColumn.Name = "nationalNoDataGridViewTextBoxColumn";
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            // 
-            // imagePathDataGridViewTextBoxColumn
-            // 
-            this.imagePathDataGridViewTextBoxColumn.DataPropertyName = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.HeaderText = "ImagePath";
-            this.imagePathDataGridViewTextBoxColumn.Name = "imagePathDataGridViewTextBoxColumn";
-            // 
-            // countryIDDataGridViewTextBoxColumn
-            // 
-            this.countryIDDataGridViewTextBoxColumn.DataPropertyName = "CountryID";
-            this.countryIDDataGridViewTextBoxColumn.HeaderText = "CountryID";
-            this.countryIDDataGridViewTextBoxColumn.Name = "countryIDDataGridViewTextBoxColumn";
-            // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Image = global::DVDL.Properties.Resources.PersonDetails_32;
@@ -317,6 +240,84 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // PersonID
+            // 
+            this.PersonID.DataPropertyName = "PersonID";
+            this.PersonID.HeaderText = "PersonID";
+            this.PersonID.Name = "PersonID";
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            // 
+            // SecondName
+            // 
+            this.SecondName.DataPropertyName = "SecondName";
+            this.SecondName.HeaderText = "SecondName";
+            this.SecondName.Name = "SecondName";
+            // 
+            // ThirdName
+            // 
+            this.ThirdName.DataPropertyName = "ThirdName";
+            this.ThirdName.HeaderText = "ThirdName";
+            this.ThirdName.Name = "ThirdName";
+            // 
+            // FourthName
+            // 
+            this.FourthName.DataPropertyName = "FourthName";
+            this.FourthName.HeaderText = "FourthName";
+            this.FourthName.Name = "FourthName";
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            // 
+            // DateOfBirth
+            // 
+            this.DateOfBirth.DataPropertyName = "DateOfBirth";
+            this.DateOfBirth.HeaderText = "DateOfBirth";
+            this.DateOfBirth.Name = "DateOfBirth";
+            // 
+            // NationalNo
+            // 
+            this.NationalNo.DataPropertyName = "NationalNo";
+            this.NationalNo.HeaderText = "NationalNo";
+            this.NationalNo.Name = "NationalNo";
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "PhoneNumber";
+            this.PhoneNumber.HeaderText = "PhoneNumber";
+            this.PhoneNumber.Name = "PhoneNumber";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // Gender
+            // 
+            this.Gender.DataPropertyName = "Gender";
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            // 
+            // ImagePath
+            // 
+            this.ImagePath.DataPropertyName = "ImagePath";
+            this.ImagePath.HeaderText = "ImagePath";
+            this.ImagePath.Name = "ImagePath";
+            // 
+            // CountryID
+            // 
+            this.CountryID.DataPropertyName = "CountryID";
+            this.CountryID.HeaderText = "CountryID";
+            this.CountryID.Name = "CountryID";
+            // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,19 +355,6 @@
         private System.Windows.Forms.Button btnAddPerson;
         private System.Windows.Forms.Label lblFilterPeopleBy;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn personIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn secondNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thirdNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fourthNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nationalNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imagePathDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countryIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource peopleBindingSource;
         private System.Windows.Forms.ContextMenuStrip CMSManagePeople;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
@@ -377,5 +365,18 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SecondName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThirdName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FourthName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NationalNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImagePath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountryID;
     }
 }
