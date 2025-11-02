@@ -5,9 +5,9 @@ using System.IO;
 
 namespace DVLD_DataAccessLayer
 {
-    public class PersonsData
+    public class PeopleData
     {
-        static SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+        private static SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
         // Get person by ID
         public static bool GetPersonByID(int PersonID, ref string FirstName, ref string SecondName
@@ -114,8 +114,6 @@ namespace DVLD_DataAccessLayer
         {
             int PersonID = -1;
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
-
             string Query = @"INSERT INTO People
            (FirstName, SecondName, ThirdName, FourthName,
             Address, DateOfBirth, NationalNo, PhoneNumber,
@@ -127,7 +125,7 @@ namespace DVLD_DataAccessLayer
 
            SELECT SCOPE_IDENTITY()";
 
-            SqlCommand command = new SqlCommand(Query, connection);
+            SqlCommand command = new SqlCommand(Query, Connection);
 
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
@@ -148,11 +146,13 @@ namespace DVLD_DataAccessLayer
 
             try
             {
-                connection.Open();
+                Connection.Open();
                 object Result = command.ExecuteScalar();
 
-                if (Result != null && int.TryParse(Result.ToString(), out int InsertedID))
-                    PersonID = InsertedID;
+                if (Result != null)
+                {
+                    int.TryParse(Result.ToString(), out PersonID);
+                }
             }
             catch (Exception ex)
             {
@@ -160,7 +160,7 @@ namespace DVLD_DataAccessLayer
             }
             finally
             {
-                connection.Close();
+                Connection.Close();
             }
 
             return PersonID;
@@ -174,8 +174,6 @@ namespace DVLD_DataAccessLayer
             string ImagePath, short CountryID)
         {
             int RowsAffected = 0;
-
-            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string Query = @"UPDATE People
                              SET FirstName = @FirstName,
@@ -192,7 +190,7 @@ namespace DVLD_DataAccessLayer
                                  ImagePath = @ImagePath
                              WHERE PersonID = @PersonID;";
 
-            SqlCommand command = new SqlCommand(Query, connection);
+            SqlCommand command = new SqlCommand(Query, Connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
             command.Parameters.AddWithValue("@FirstName", FirstName);
@@ -214,7 +212,7 @@ namespace DVLD_DataAccessLayer
 
             try
             {
-                connection.Open();
+                Connection.Open();
                 RowsAffected = command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -224,7 +222,7 @@ namespace DVLD_DataAccessLayer
             }
             finally
             {
-                connection.Close();
+                Connection.Close();
             }
 
             return (RowsAffected > 0);
@@ -235,16 +233,14 @@ namespace DVLD_DataAccessLayer
         {
             int RowsAffected = 0;
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
-
             string Query = @"DELETE FROM People WHERE PersonID = @PersonID";
-            SqlCommand command = new SqlCommand(Query, connection);
+            SqlCommand command = new SqlCommand(Query, Connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {
-                connection.Open();
+                Connection.Open();
                 RowsAffected = command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -254,18 +250,16 @@ namespace DVLD_DataAccessLayer
             }
             finally
             {
-                connection.Close();
+                Connection.Close();
             }
 
             return (RowsAffected > 0);
         }
 
-        // Get all persons
-        public static DataTable GetAllPersons()
+        // Get all People
+        public static DataTable GetAllPeople()
         {
             DataTable DT = new DataTable();
-
-            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string Query = "SELECT * FROM People";
 
@@ -300,16 +294,14 @@ namespace DVLD_DataAccessLayer
         {
             bool IsFound = false;
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
-
             string Query = @"SELECT 1 FROM People WHERE PersonID = @PersonID";
 
-            SqlCommand command = new SqlCommand(Query, connection);
+            SqlCommand command = new SqlCommand(Query, Connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {
-                connection.Open();
+                Connection.Open();
                 object Result = command.ExecuteScalar();
 
                 IsFound = (Result != null);
@@ -320,7 +312,7 @@ namespace DVLD_DataAccessLayer
             }
             finally
             {
-                connection.Close();
+                Connection.Close();
             }
 
             return IsFound;
@@ -335,7 +327,7 @@ namespace DVLD_DataAccessLayer
             if (!Directory.Exists(logFolderPath))
                 Directory.CreateDirectory(logFolderPath);
 
-            string logFilePath = Path.Combine(logFolderPath, "error.txt");
+            string logFilePath = Path.Combine(logFolderPath, "Person_Errors.txt");
             string logMessage = $"[{DateTime.Now}] {ex}\n";
 
             File.AppendAllText(logFilePath, logMessage);

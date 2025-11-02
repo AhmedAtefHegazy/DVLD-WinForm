@@ -2,9 +2,9 @@
 using System.Data;
 using DVLD_DataAccessLayer;
 
-namespace PersonsBusinessLayer
+namespace PeopleBusinessLayer
 {
-    public class Persons
+    public class People
     {
         public int PersonID { get; set; }
         public string FirstName { get; set; }
@@ -21,9 +21,9 @@ namespace PersonsBusinessLayer
         public short CountryID { get; set; }
 
         private enum enMode { Update = 0, AddNew = 1 };
-        private enMode Mode = enMode.AddNew;
+        private enMode Mode;
 
-        public Persons()
+        public People()
         {
             this.PersonID = -1;
             this.FirstName = "";
@@ -42,7 +42,7 @@ namespace PersonsBusinessLayer
             Mode = enMode.AddNew;
         }
 
-        private Persons(int PersonID, string FirstName, string SecondName,
+        private People(int PersonID, string FirstName, string SecondName,
             string ThirdName, string FourthName, string Address,
             DateTime DateOfBirth, string NationalNo, string PhoneNumber,
             string Email, char Gender, string ImagePath, short CountryID)
@@ -64,7 +64,7 @@ namespace PersonsBusinessLayer
             Mode = enMode.Update;
         }
 
-        public static Persons Find(int ID)
+        public static People Find(int ID)
         {
             string FirstName = "", SecondName = "", ThirdName = "", FourthName = "";
             string Address = "", NationalNo = "", PhoneNumber = "", Email = "", ImagePath = "";
@@ -72,12 +72,12 @@ namespace PersonsBusinessLayer
             char Gender = 'U';
             short CountryID = -1;
 
-            if (PersonsData.GetPersonByID(ID, ref FirstName, ref SecondName
+            if (PeopleData.GetPersonByID(ID, ref FirstName, ref SecondName
                 , ref ThirdName, ref FourthName, ref Address, ref DateOfBirth,
                 ref NationalNo, ref PhoneNumber, ref Email, ref Gender,
                 ref ImagePath, ref CountryID))
             {
-                return new Persons(ID, FirstName, SecondName, ThirdName,
+                return new People(ID, FirstName, SecondName, ThirdName,
                     FourthName, Address, DateOfBirth, NationalNo, PhoneNumber,
                     Email, Gender, ImagePath, CountryID);
             }
@@ -89,7 +89,7 @@ namespace PersonsBusinessLayer
 
         private bool _AddNewPerson()
         {
-            this.PersonID = PersonsData.AddNewPerson(this.FirstName, this.SecondName,
+            this.PersonID = PeopleData.AddNewPerson(this.FirstName, this.SecondName,
                 this.ThirdName, this.FourthName, this.Address, this.DateOfBirth,
                 this.NationalNo, this.PhoneNumber, this.Email, this.Gender,
                 this.ImagePath, this.CountryID);
@@ -99,7 +99,7 @@ namespace PersonsBusinessLayer
 
         private bool _UpdatePerson()
         {
-            return PersonsData.UpdatePerson(this.PersonID, this.FirstName, this.SecondName,
+            return PeopleData.UpdatePerson(this.PersonID, this.FirstName, this.SecondName,
                 this.ThirdName, this.FourthName, this.Address, this.DateOfBirth,
                 this.NationalNo, this.PhoneNumber, this.Email, this.Gender,
                 this.ImagePath, this.CountryID);
@@ -107,17 +107,17 @@ namespace PersonsBusinessLayer
 
         public static bool DeletePerson(int PersonID)
         {
-            return PersonsData.DeletePerson(PersonID);
+            return PeopleData.DeletePerson(PersonID);
         }
 
         public static bool IsPersonExist(int PersonID)
         {
-            return PersonsData.IsPersonExist(PersonID);
+            return PeopleData.IsPersonExist(PersonID);
         }
 
-        public static DataTable GetAllPersons()
+        public static DataTable GetAllPeople()
         {
-            return PersonsData.GetAllPersons();
+            return PeopleData.GetAllPeople();
         }
 
         public bool Save()

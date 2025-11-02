@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace DVDL
 {
     public partial class FrmManagePeople : Form
@@ -15,6 +7,12 @@ namespace DVDL
         public FrmManagePeople()
         {
             InitializeComponent();
+            DGVManagePeople.DataSource = PeopleBusinessLayer.People.GetAllPeople();
+        }
+
+        private void btnCloseManagePeopleForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
