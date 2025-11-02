@@ -11,7 +11,7 @@ namespace DVLD_DataAccessLayer
 
         // Get person by ID
         public static bool GetPersonByID(int PersonID, ref string FirstName, ref string SecondName
-                , ref string ThirdName, ref string FourthName
+                , ref string ThirdName, ref string LastName
               , ref string Address, ref DateTime DateOfBirth, ref string NationalNo
               , ref string PhoneNumber, ref string Email, ref char Gender
               , ref string ImagePath, ref short CountryID)
@@ -29,18 +29,21 @@ namespace DVLD_DataAccessLayer
                 SqlDataReader Reader = command.ExecuteReader();
                 if (Reader.Read())
                 {
-                    FirstName = Reader["FirstName"].ToString();
-                    SecondName = Reader["SecondName"].ToString();
-                    ThirdName = Reader["ThirdName"].ToString();
-                    FourthName = Reader["FourthName"].ToString();
-                    Address = Reader["Address"].ToString();
-                    DateOfBirth = (DateTime)Reader["DateOfBirth"];
-                    NationalNo = Reader["NationalNo"].ToString();
-                    PhoneNumber = Reader["PhoneNumber"].ToString();
-                    Email = Reader["Email"].ToString();
-                    Gender = Convert.ToChar(Reader["Gender"]);
-                    ImagePath = Reader["ImagePath"] == DBNull.Value ? "" : Reader["ImagePath"].ToString();
-                    CountryID = Convert.ToInt16(Reader["CountryID"]);
+                    FirstName = Reader["FirstName"] == DBNull.Value ? string.Empty : Reader["FirstName"]?.ToString() ?? string.Empty;
+                    SecondName = Reader["SecondName"] == DBNull.Value ? string.Empty : Reader["SecondName"]?.ToString() ?? string.Empty;
+                    ThirdName = Reader["ThirdName"] == DBNull.Value ? string.Empty : Reader["ThirdName"]?.ToString() ?? string.Empty;
+                    // Changed FourthName to LastName
+                    LastName = Reader["LastName"] == DBNull.Value ? string.Empty : Reader["LastName"]?.ToString() ?? string.Empty;
+                    Address = Reader["Address"] == DBNull.Value ? string.Empty : Reader["Address"]?.ToString() ?? string.Empty;
+                    DateOfBirth = Reader["DateOfBirth"] == DBNull.Value ? DateTime.MinValue : (DateTime)Reader["DateOfBirth"];
+                    NationalNo = Reader["NationalNo"] == DBNull.Value ? string.Empty : Reader["NationalNo"]?.ToString() ?? string.Empty;
+                    // Changed PhoneNumber to Phone
+                    PhoneNumber = Reader["Phone"] == DBNull.Value ? string.Empty : Reader["Phone"]?.ToString() ?? string.Empty;
+                    Email = Reader["Email"] == DBNull.Value ? string.Empty : Reader["Email"]?.ToString() ?? string.Empty;
+                    Gender = Reader["Gender"] == DBNull.Value ? '\0' : Convert.ToChar(Reader["Gender"]);
+                    ImagePath = Reader["ImagePath"] == DBNull.Value ? string.Empty : Reader["ImagePath"]?.ToString() ?? string.Empty;
+                    // Changed CountryID to NationalityCountryID
+                    CountryID = Reader["NationalityCountryID"] == DBNull.Value ? (short)0 : Convert.ToInt16(Reader["NationalityCountryID"]);
 
                     IsFound = true;
                 }

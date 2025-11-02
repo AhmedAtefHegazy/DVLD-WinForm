@@ -42,7 +42,7 @@ namespace DVDL
                 ? Person.DateOfBirth.ToShortDateString()
                 : "N/A";
 
-            lblPersonGender.Text = Person.Gender == '\0' ? "N/A" : Person.Gender.ToString();
+            lblPersonGender.Text = Person.Gender == '\0' ? "U" : Person.Gender.ToString();
             lblPersonPhone.Text = string.IsNullOrWhiteSpace(Person.PhoneNumber) ? "N/A" : Person.PhoneNumber;
             lblPersonEmail.Text = string.IsNullOrWhiteSpace(Person.Email) ? "N/A" : Person.Email;
 
@@ -58,7 +58,7 @@ namespace DVDL
             }
             else
             {
-                PBPersonImage.Image = (Person.Gender == 'M')
+                PBPersonImage.Image = (Person.Gender == 'M' || lblPersonGender.Text == "U")
                     ? Resources.Male_512
                     : Resources.Female_512;
             }
