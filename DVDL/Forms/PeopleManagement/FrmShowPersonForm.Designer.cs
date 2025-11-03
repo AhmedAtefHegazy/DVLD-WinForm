@@ -75,6 +75,7 @@
             this.Controls.Add(this.btnCloseShowPersonForm);
             this.Controls.Add(this.lblPersonDetails);
             this.Controls.Add(this.cardPersonInformation1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmShowPersonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowPersonForm";
