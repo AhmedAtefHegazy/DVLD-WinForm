@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\PeopleManagement\FrmAdd_EditPersonInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PeopleManagement\FrmAdd_EditPersonInfo.Designer.cs">
+      <DependentUpon>FrmAdd_EditPersonInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PeopleManagement\FrmShowPersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\PeopleManagement\FrmAdd_EditPersonInfo.resx">
+      <DependentUpon>FrmAdd_EditPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PeopleManagement\FrmShowPersonForm.resx">
       <DependentUpon>FrmShowPersonForm.cs</DependentUpon>
     </EmbeddedResource>
