@@ -8,13 +8,12 @@ namespace DVDL
         public FrmManagePeople()
         {
             InitializeComponent();
-            DGVManagePeople.DataSource = PeopleBusinessLayer.People.GetAllPeople();
             RefreshTable();
         }
 
         private void RefreshTable()
         {
-            DGVManagePeople.Refresh();
+            DGVManagePeople.DataSource = PeopleBusinessLayer.People.GetAllPeople();
             lblRecordCount.Text = "# Record: " + DGVManagePeople.RowCount.ToString();
         }
 
@@ -44,6 +43,57 @@ namespace DVDL
         private void DGVManagePeople_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            Form AddPerson = new FrmAdd_EditPersonInfo(-1);
+            AddPerson.ShowDialog();
+
+        }
+
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form AddPerson = new FrmAdd_EditPersonInfo(-1);
+            AddPerson.ShowDialog();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)DGVManagePeople.SelectedRows[0].Cells["PersonID"].Value;
+
+            Form EditPerson = new FrmAdd_EditPersonInfo(PersonID);
+            EditPerson.ShowDialog();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)DGVManagePeople.SelectedRows[0].Cells["PersonID"].Value;
+
+
+
+            if (MessageBox.Show($"Sure to delete {DGVManagePeople.SelectedRows[0].Cells["FirstName"].Value.ToString()}", "Delete Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                if (!PeopleBusinessLayer.People.DeletePerson(PersonID))
+                {
+                    MessageBox.Show("Failed to delete, The user has data linked to him ! ");
+                }
+
+                RefreshTable();
+            }
+            else
+                return;
+
+        }
+
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Will coming soon !", "Not Ready yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Will coming soon !", "Not Ready yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -68,7 +68,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblPersonId = new System.Windows.Forms.Label();
-            this.LBLForm = new System.Windows.Forms.Label();
+            this.LBLFormStatus = new System.Windows.Forms.Label();
             this.CardPersonInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -504,16 +504,16 @@
             this.lblPersonId.TabIndex = 13;
             this.lblPersonId.Text = "[????]";
             // 
-            // LBLForm
+            // LBLFormStatus
             // 
-            this.LBLForm.AutoSize = true;
-            this.LBLForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
-            this.LBLForm.ForeColor = System.Drawing.Color.Brown;
-            this.LBLForm.Location = new System.Drawing.Point(547, 52);
-            this.LBLForm.Name = "LBLForm";
-            this.LBLForm.Size = new System.Drawing.Size(271, 44);
-            this.LBLForm.TabIndex = 26;
-            this.LBLForm.Text = "Update Person";
+            this.LBLFormStatus.AutoSize = true;
+            this.LBLFormStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBLFormStatus.ForeColor = System.Drawing.Color.Brown;
+            this.LBLFormStatus.Location = new System.Drawing.Point(540, 53);
+            this.LBLFormStatus.Name = "LBLFormStatus";
+            this.LBLFormStatus.Size = new System.Drawing.Size(281, 42);
+            this.LBLFormStatus.TabIndex = 26;
+            this.LBLFormStatus.Text = "Update Person";
             // 
             // FrmAdd_EditPersonInfo
             // 
@@ -521,13 +521,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1313, 579);
-            this.Controls.Add(this.LBLForm);
+            this.Controls.Add(this.LBLFormStatus);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.lblPersonId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CardPersonInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmAdd_EditPersonInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add/Edit Person Info.";
             this.CardPersonInfo.ResumeLayout(false);
             this.CardPersonInfo.PerformLayout();
@@ -589,6 +590,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label Label10;
-        private System.Windows.Forms.Label LBLForm;
+        private System.Windows.Forms.Label LBLFormStatus;
     }
 }
