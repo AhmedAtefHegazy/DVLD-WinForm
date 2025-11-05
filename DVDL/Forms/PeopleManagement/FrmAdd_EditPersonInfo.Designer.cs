@@ -397,7 +397,7 @@
             this.Controls.Add(this.CardPersonInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmAdd_EditPersonInfo";
-            this.Text = "FrmAdd_EditPersonInfo";
+            this.Text = "Add/Edit Person Info.";
             this.CardPersonInfo.ResumeLayout(false);
             this.CardPersonInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
