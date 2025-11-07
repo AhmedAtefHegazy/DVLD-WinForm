@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblPersonId = new System.Windows.Forms.Label();
             this.LBLFormStatus = new System.Windows.Forms.Label();
+            this.EP = new System.Windows.Forms.ErrorProvider(this.components);
             this.CardPersonInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -81,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EP)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -257,6 +260,7 @@
             // RBFemale
             // 
             this.RBFemale.AutoSize = true;
+            this.RBFemale.Checked = true;
             this.RBFemale.Location = new System.Drawing.Point(360, 161);
             this.RBFemale.Name = "RBFemale";
             this.RBFemale.Size = new System.Drawing.Size(95, 29);
@@ -271,14 +275,12 @@
             this.RBMale.Location = new System.Drawing.Point(218, 161);
             this.RBMale.Name = "RBMale";
             this.RBMale.Size = new System.Drawing.Size(73, 29);
-            this.RBMale.TabIndex = 22;
-            this.RBMale.TabStop = true;
+            this.RBMale.TabIndex = 7;
             this.RBMale.Text = "Male";
             this.RBMale.UseVisualStyleBackColor = true;
             // 
             // BtnSave
             // 
-            this.BtnSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.BtnSave.Image = global::DVDL.Properties.Resources.Save_32;
@@ -286,9 +288,10 @@
             this.BtnSave.Location = new System.Drawing.Point(776, 388);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(175, 52);
-            this.BtnSave.TabIndex = 21;
+            this.BtnSave.TabIndex = 13;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnClose
             // 
@@ -300,7 +303,7 @@
             this.btnClose.Location = new System.Drawing.Point(586, 388);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(175, 52);
-            this.btnClose.TabIndex = 20;
+            this.btnClose.TabIndex = 12;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
@@ -310,78 +313,95 @@
             this.CBCountry.Location = new System.Drawing.Point(730, 209);
             this.CBCountry.Name = "CBCountry";
             this.CBCountry.Size = new System.Drawing.Size(221, 33);
-            this.CBCountry.TabIndex = 19;
+            this.CBCountry.TabIndex = 10;
+            this.CBCountry.Validating += new System.ComponentModel.CancelEventHandler(this.CBCountry_Validating);
             // 
             // DTPDateOfBirth
             // 
             this.DTPDateOfBirth.Location = new System.Drawing.Point(730, 112);
             this.DTPDateOfBirth.Name = "DTPDateOfBirth";
             this.DTPDateOfBirth.Size = new System.Drawing.Size(221, 30);
-            this.DTPDateOfBirth.TabIndex = 18;
+            this.DTPDateOfBirth.TabIndex = 6;
+            this.DTPDateOfBirth.Validating += new System.ComponentModel.CancelEventHandler(this.DTPDateOfBirth_Validating);
             // 
             // RTBAddress
             // 
             this.RTBAddress.Location = new System.Drawing.Point(218, 257);
             this.RTBAddress.Name = "RTBAddress";
             this.RTBAddress.Size = new System.Drawing.Size(733, 115);
-            this.RTBAddress.TabIndex = 17;
+            this.RTBAddress.TabIndex = 11;
             this.RTBAddress.Text = "";
+            this.RTBAddress.Validating += new System.ComponentModel.CancelEventHandler(this.RTBAddress_Validating);
             // 
             // RTBPhone
             // 
             this.RTBPhone.Location = new System.Drawing.Point(730, 160);
+            this.RTBPhone.Multiline = false;
             this.RTBPhone.Name = "RTBPhone";
             this.RTBPhone.Size = new System.Drawing.Size(221, 25);
-            this.RTBPhone.TabIndex = 17;
+            this.RTBPhone.TabIndex = 8;
             this.RTBPhone.Text = "";
+            this.RTBPhone.Validating += new System.ComponentModel.CancelEventHandler(this.RTBPhone_Validating);
             // 
             // RTBEmail
             // 
             this.RTBEmail.Location = new System.Drawing.Point(218, 209);
+            this.RTBEmail.Multiline = false;
             this.RTBEmail.Name = "RTBEmail";
             this.RTBEmail.Size = new System.Drawing.Size(221, 25);
-            this.RTBEmail.TabIndex = 17;
+            this.RTBEmail.TabIndex = 9;
             this.RTBEmail.Text = "";
+            this.RTBEmail.Validating += new System.ComponentModel.CancelEventHandler(this.RTBEmail_Validating);
             // 
             // RTBNationalNo
             // 
             this.RTBNationalNo.Location = new System.Drawing.Point(218, 112);
+            this.RTBNationalNo.Multiline = false;
             this.RTBNationalNo.Name = "RTBNationalNo";
             this.RTBNationalNo.Size = new System.Drawing.Size(221, 25);
-            this.RTBNationalNo.TabIndex = 17;
+            this.RTBNationalNo.TabIndex = 5;
             this.RTBNationalNo.Text = "";
+            this.RTBNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.RTBNationalNo_Validating);
             // 
             // RTBNameFirst
             // 
             this.RTBNameFirst.Location = new System.Drawing.Point(218, 62);
+            this.RTBNameFirst.Multiline = false;
             this.RTBNameFirst.Name = "RTBNameFirst";
             this.RTBNameFirst.Size = new System.Drawing.Size(221, 25);
-            this.RTBNameFirst.TabIndex = 17;
+            this.RTBNameFirst.TabIndex = 1;
             this.RTBNameFirst.Text = "";
+            this.RTBNameFirst.Validating += new System.ComponentModel.CancelEventHandler(this.RTBNameFirst_Validating);
             // 
             // RTBNameSecond
             // 
             this.RTBNameSecond.Location = new System.Drawing.Point(475, 59);
+            this.RTBNameSecond.Multiline = false;
             this.RTBNameSecond.Name = "RTBNameSecond";
             this.RTBNameSecond.Size = new System.Drawing.Size(221, 25);
-            this.RTBNameSecond.TabIndex = 17;
+            this.RTBNameSecond.TabIndex = 2;
             this.RTBNameSecond.Text = "";
+            this.RTBNameSecond.Validating += new System.ComponentModel.CancelEventHandler(this.RTBNameSecond_Validating);
             // 
             // RTBNameThird
             // 
             this.RTBNameThird.Location = new System.Drawing.Point(730, 59);
+            this.RTBNameThird.Multiline = false;
             this.RTBNameThird.Name = "RTBNameThird";
             this.RTBNameThird.Size = new System.Drawing.Size(221, 25);
-            this.RTBNameThird.TabIndex = 17;
+            this.RTBNameThird.TabIndex = 3;
             this.RTBNameThird.Text = "";
+            this.RTBNameThird.Validating += new System.ComponentModel.CancelEventHandler(this.RTBNameThird_Validating);
             // 
             // RTBNameLast
             // 
             this.RTBNameLast.Location = new System.Drawing.Point(988, 59);
+            this.RTBNameLast.Multiline = false;
             this.RTBNameLast.Name = "RTBNameLast";
             this.RTBNameLast.Size = new System.Drawing.Size(221, 25);
-            this.RTBNameLast.TabIndex = 17;
+            this.RTBNameLast.TabIndex = 4;
             this.RTBNameLast.Text = "";
+            this.RTBNameLast.Validating += new System.ComponentModel.CancelEventHandler(this.RTBNameLast_Validating);
             // 
             // pictureBox8
             // 
@@ -515,6 +535,10 @@
             this.LBLFormStatus.TabIndex = 26;
             this.LBLFormStatus.Text = "Update Person";
             // 
+            // EP
+            // 
+            this.EP.ContainerControl = this;
+            // 
             // FrmAdd_EditPersonInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -543,6 +567,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBPersonImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,5 +616,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label Label10;
         private System.Windows.Forms.Label LBLFormStatus;
+        private System.Windows.Forms.ErrorProvider EP;
     }
 }
