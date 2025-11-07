@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccessSettings.cs" />
+    <Compile Include="CountriesData.cs" />
+    <Compile Include="Helpers\DataAccessSettings.cs" />
+    <Compile Include="Helpers\LoggingHelper.cs" />
     <Compile Include="PeopleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
