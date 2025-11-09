@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows.Forms;
 
+//Add boolian here that show me that all fields filled in right way to use it in save button to avoid doing validation twice
+
 namespace DVDL.Forms.PeopleManagement
 {
     public partial class FrmAdd_EditPersonInfo : Form

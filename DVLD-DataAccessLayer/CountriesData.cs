@@ -21,7 +21,6 @@ namespace DVLD_DataAccessLayer
 
                 while (reader.Read())
                 {
-
                     CountryName = (string)reader["CountryName"];
                     IsFound = true;
                 }
@@ -36,6 +35,5 @@ namespace DVLD_DataAccessLayer
             }
             return IsFound;
         }
-
     }
 }
