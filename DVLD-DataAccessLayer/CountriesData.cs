@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace DVLD_DataAccessLayer
 {
-    internal class CountriesData
+    public class CountriesData
     {
         static public bool GetCountryByID(int CountryID, ref string CountryName)
         {
@@ -49,7 +49,7 @@ namespace DVLD_DataAccessLayer
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.HasRows)
                 {
                     DTCountriesDate.Load(reader);
                 }
