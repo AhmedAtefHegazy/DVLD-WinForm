@@ -11,7 +11,10 @@ namespace DVDL.Forms.PeopleManagement
 
         private void BtnSave_Click(object sender, System.EventArgs e)
         {
-
+            if (IsAllFieldsValid())
+            {
+                this.Close();
+            }
         }
 
     }

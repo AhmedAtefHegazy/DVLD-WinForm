@@ -2,27 +2,40 @@
 using System.Linq;
 using System.Windows.Forms;
 
-//Add boolian here that show me that all fields filled in right way to use it in save button to avoid doing validation twice
+//Add boolians here that show me that all fields filled in right way to use it in save button to avoid doing validation twice
 
 namespace DVDL.Forms.PeopleManagement
 {
     public partial class FrmAdd_EditPersonInfo : Form
     {
+        private bool IsFirstNameValid = false;
+        private bool IsSecondNameValid = false;
+        private bool IsThirdNameValid = false;
+        private bool IsLastNameValid = false;
+
+        private bool IsAllFieldsValid()
+        {
+            return IsFirstNameValid && IsSecondNameValid && IsThirdNameValid && IsLastNameValid;
+        }
+
         private void RTBNameFirst_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
             {
                 EP.SetError((Control)sender, "you must add your first name");
+                IsFirstNameValid = false;
                 e.Cancel = true;
             }
             else if (RTBNameFirst.Text.Any(char.IsDigit) || RTBNameFirst.Text.Any(char.IsPunctuation))
             {
                 EP.SetError((Control)sender, "First name cannot contain numbers");
+                IsFirstNameValid = false;
                 e.Cancel = true;
             }
             else
             {
                 EP.SetError((Control)sender, "");
+                IsFirstNameValid = true;
                 e.Cancel = false;
             }
         }
@@ -32,16 +45,19 @@ namespace DVDL.Forms.PeopleManagement
             if (string.IsNullOrWhiteSpace(RTBNameSecond.Text))
             {
                 EP.SetError((Control)sender, "you must add your Second name");
+                IsSecondNameValid = false;
                 e.Cancel = true;
             }
             else if (RTBNameSecond.Text.Any(char.IsDigit) || RTBNameSecond.Text.Any(char.IsPunctuation))
             {
                 EP.SetError((Control)sender, "Second name cannot contain numbers");
+                IsSecondNameValid = false;
                 e.Cancel = true;
             }
             else
             {
                 EP.SetError((Control)sender, "");
+                IsSecondNameValid = true;
                 e.Cancel = false;
             }
         }
@@ -51,16 +67,19 @@ namespace DVDL.Forms.PeopleManagement
             if (string.IsNullOrWhiteSpace(RTBNameThird.Text))
             {
                 EP.SetError((Control)sender, "you must add your Third name");
+                IsThirdNameValid = false;
                 e.Cancel = true;
             }
             else if (RTBNameThird.Text.Any(char.IsDigit) || RTBNameThird.Text.Any(char.IsPunctuation))
             {
                 EP.SetError((Control)sender, "Third name cannot contain numbers");
+                IsThirdNameValid = false;
                 e.Cancel = true;
             }
             else
             {
                 EP.SetError((Control)sender, "");
+                IsThirdNameValid = true;
                 e.Cancel = false;
             }
         }
@@ -70,23 +89,26 @@ namespace DVDL.Forms.PeopleManagement
             if (string.IsNullOrWhiteSpace(RTBNameLast.Text))
             {
                 EP.SetError((Control)sender, "you must add your Last name");
+                IsLastNameValid = false;
                 e.Cancel = true;
             }
             else if (RTBNameLast.Text.Any(char.IsDigit) || RTBNameLast.Text.Any(char.IsPunctuation))
             {
                 EP.SetError((Control)sender, "Last name cannot contain numbers");
+                IsLastNameValid = false;
                 e.Cancel = true;
             }
             else
             {
                 EP.SetError((Control)sender, "");
+                IsLastNameValid = true;
                 e.Cancel = false;
             }
         }
 
         private void CBCountry_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
+            if (string.IsNullOrWhiteSpace(CBCountry.Text))
             {
                 EP.SetError((Control)sender, "you must add your first name");
             }
@@ -115,7 +137,7 @@ namespace DVDL.Forms.PeopleManagement
         {
             if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
             {
-                EP.SetError((Control)sender, "you must add your first name");
+                EP.SetError((Control)sender, "you must add Address");
             }
             else
             {
@@ -127,7 +149,7 @@ namespace DVDL.Forms.PeopleManagement
         {
             if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
             {
-                EP.SetError((Control)sender, "you must add your first name");
+                EP.SetError((Control)sender, "you must add Phone");
             }
             else
             {
@@ -139,7 +161,7 @@ namespace DVDL.Forms.PeopleManagement
         {
             if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
             {
-                EP.SetError((Control)sender, "you must add your first name");
+                EP.SetError((Control)sender, "You Must Enter Valid Email");
             }
             else
             {
@@ -151,7 +173,7 @@ namespace DVDL.Forms.PeopleManagement
         {
             if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
             {
-                EP.SetError((Control)sender, "you must add your first name");
+                EP.SetError((Control)sender, "you must add National Number");
             }
             else
             {
