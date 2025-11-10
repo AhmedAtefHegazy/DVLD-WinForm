@@ -29,21 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.DGVManagePeople = new System.Windows.Forms.DataGridView();
-            this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThirdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FourthName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImagePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMSManagePeople = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,6 +49,19 @@
             this.btnCloseManagePeopleForm = new System.Windows.Forms.Button();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThirdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImagePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NationalityCountryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).BeginInit();
             this.CMSManagePeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
@@ -71,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(607, 177);
+            this.label1.Location = new System.Drawing.Point(568, 166);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(269, 39);
             this.label1.TabIndex = 1;
@@ -83,107 +85,46 @@
             this.DGVManagePeople.AllowUserToDeleteRows = false;
             this.DGVManagePeople.AutoGenerateColumns = false;
             this.DGVManagePeople.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVManagePeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVManagePeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVManagePeople.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PersonID,
             this.FirstName,
             this.SecondName,
             this.ThirdName,
-            this.FourthName,
+            this.LastName,
             this.Address,
             this.DateOfBirth,
             this.NationalNo,
-            this.PhoneNumber,
+            this.Phone,
             this.Email,
             this.Gender,
             this.ImagePath,
-            this.CountryID});
+            this.NationalityCountryID});
             this.DGVManagePeople.ContextMenuStrip = this.CMSManagePeople;
             this.DGVManagePeople.DataSource = this.peopleBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVManagePeople.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVManagePeople.Location = new System.Drawing.Point(12, 303);
             this.DGVManagePeople.Name = "DGVManagePeople";
+            this.DGVManagePeople.ReadOnly = true;
+            this.DGVManagePeople.RowHeadersWidth = 65;
             this.DGVManagePeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVManagePeople.Size = new System.Drawing.Size(1347, 359);
             this.DGVManagePeople.TabIndex = 2;
-            this.DGVManagePeople.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVManagePeople_CellContentClick);
-            // 
-            // PersonID
-            // 
-            this.PersonID.DataPropertyName = "PersonID";
-            this.PersonID.HeaderText = "PersonID";
-            this.PersonID.Name = "PersonID";
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            // 
-            // SecondName
-            // 
-            this.SecondName.DataPropertyName = "SecondName";
-            this.SecondName.HeaderText = "SecondName";
-            this.SecondName.Name = "SecondName";
-            // 
-            // ThirdName
-            // 
-            this.ThirdName.DataPropertyName = "ThirdName";
-            this.ThirdName.HeaderText = "ThirdName";
-            this.ThirdName.Name = "ThirdName";
-            // 
-            // FourthName
-            // 
-            this.FourthName.DataPropertyName = "FourthName";
-            this.FourthName.HeaderText = "FourthName";
-            this.FourthName.Name = "FourthName";
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.DataPropertyName = "DateOfBirth";
-            this.DateOfBirth.HeaderText = "DateOfBirth";
-            this.DateOfBirth.Name = "DateOfBirth";
-            // 
-            // NationalNo
-            // 
-            this.NationalNo.DataPropertyName = "NationalNo";
-            this.NationalNo.HeaderText = "NationalNo";
-            this.NationalNo.Name = "NationalNo";
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.DataPropertyName = "PhoneNumber";
-            this.PhoneNumber.HeaderText = "PhoneNumber";
-            this.PhoneNumber.Name = "PhoneNumber";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // Gender
-            // 
-            this.Gender.DataPropertyName = "Gender";
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            // 
-            // ImagePath
-            // 
-            this.ImagePath.DataPropertyName = "ImagePath";
-            this.ImagePath.HeaderText = "ImagePath";
-            this.ImagePath.Name = "ImagePath";
-            // 
-            // CountryID
-            // 
-            this.CountryID.DataPropertyName = "CountryID";
-            this.CountryID.HeaderText = "CountryID";
-            this.CountryID.Name = "CountryID";
             // 
             // CMSManagePeople
             // 
@@ -198,26 +139,26 @@
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.CMSManagePeople.Name = "contextMenuStrip1";
-            this.CMSManagePeople.Size = new System.Drawing.Size(205, 314);
+            this.CMSManagePeople.Size = new System.Drawing.Size(187, 292);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Image = global::DVDL.Properties.Resources.PersonDetails_32;
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(186, 46);
             this.showToolStripMenuItem.Text = "Show Details";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(201, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(183, 6);
             // 
             // addNewPersonToolStripMenuItem
             // 
             this.addNewPersonToolStripMenuItem.Image = global::DVDL.Properties.Resources.Add_Person_72;
             this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(186, 46);
             this.addNewPersonToolStripMenuItem.Text = "Add New Person";
             this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem_Click);
             // 
@@ -225,7 +166,7 @@
             // 
             this.editToolStripMenuItem.Image = global::DVDL.Properties.Resources.edit_32;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(186, 46);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -233,20 +174,20 @@
             // 
             this.deleteToolStripMenuItem.Image = global::DVDL.Properties.Resources.Delete_32;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(186, 46);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(201, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(183, 6);
             // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = global::DVDL.Properties.Resources.send_email_32;
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(186, 46);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             this.sendEmailToolStripMenuItem.Click += new System.EventHandler(this.sendEmailToolStripMenuItem_Click);
             // 
@@ -254,7 +195,7 @@
             // 
             this.phoneCallToolStripMenuItem.Image = global::DVDL.Properties.Resources.call_32;
             this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
+            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(186, 46);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             this.phoneCallToolStripMenuItem.Click += new System.EventHandler(this.phoneCallToolStripMenuItem_Click);
             // 
@@ -317,19 +258,113 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVDL.Properties.Resources.People_400;
-            this.pictureBox1.Location = new System.Drawing.Point(632, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(598, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(216, 151);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // PersonID
+            // 
+            this.PersonID.DataPropertyName = "PersonID";
+            this.PersonID.HeaderText = "PersonID";
+            this.PersonID.Name = "PersonID";
+            this.PersonID.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // SecondName
+            // 
+            this.SecondName.DataPropertyName = "SecondName";
+            this.SecondName.HeaderText = "SecondName";
+            this.SecondName.Name = "SecondName";
+            this.SecondName.ReadOnly = true;
+            // 
+            // ThirdName
+            // 
+            this.ThirdName.DataPropertyName = "ThirdName";
+            this.ThirdName.HeaderText = "ThirdName";
+            this.ThirdName.Name = "ThirdName";
+            this.ThirdName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
+            // DateOfBirth
+            // 
+            this.DateOfBirth.DataPropertyName = "DateOfBirth";
+            this.DateOfBirth.HeaderText = "DateOfBirth";
+            this.DateOfBirth.Name = "DateOfBirth";
+            this.DateOfBirth.ReadOnly = true;
+            // 
+            // NationalNo
+            // 
+            this.NationalNo.DataPropertyName = "NationalNo";
+            this.NationalNo.HeaderText = "NationalNo";
+            this.NationalNo.Name = "NationalNo";
+            this.NationalNo.ReadOnly = true;
+            // 
+            // Phone
+            // 
+            this.Phone.DataPropertyName = "Phone";
+            this.Phone.HeaderText = "Phone";
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.DataPropertyName = "Gender";
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // ImagePath
+            // 
+            this.ImagePath.DataPropertyName = "ImagePath";
+            this.ImagePath.HeaderText = "ImagePath";
+            this.ImagePath.Name = "ImagePath";
+            this.ImagePath.ReadOnly = true;
+            this.ImagePath.Visible = false;
+            // 
+            // NationalityCountryID
+            // 
+            this.NationalityCountryID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.NationalityCountryID.DataPropertyName = "NationalityCountryID";
+            this.NationalityCountryID.HeaderText = "NationalityCountryID";
+            this.NationalityCountryID.Name = "NationalityCountryID";
+            this.NationalityCountryID.ReadOnly = true;
+            this.NationalityCountryID.Width = 179;
+            // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCloseManagePeopleForm;
-            this.ClientSize = new System.Drawing.Size(1374, 771);
+            this.ClientSize = new System.Drawing.Size(1370, 771);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblFilterPeopleBy);
             this.Controls.Add(this.btnAddPerson);
@@ -375,14 +410,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SecondName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThirdName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FourthName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn NationalNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImagePath;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CountryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NationalityCountryID;
     }
 }

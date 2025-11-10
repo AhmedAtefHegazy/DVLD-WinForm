@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Data;
+using System.Windows.Forms;
+using CountriesBusinessLayer;
 using DVDL.Properties;
 
 namespace DVDL.Forms.PeopleManagement
@@ -73,6 +76,7 @@ namespace DVDL.Forms.PeopleManagement
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblPersonId = new System.Windows.Forms.Label();
             this.LBLFormStatus = new System.Windows.Forms.Label();
+            this.llblSetImage = new System.Windows.Forms.LinkLabel();
             this.EP = new System.Windows.Forms.ErrorProvider(this.components);
             this.CardPersonInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -171,6 +175,7 @@ namespace DVDL.Forms.PeopleManagement
             // 
             // CardPersonInfo
             // 
+            this.CardPersonInfo.Controls.Add(this.llblSetImage);
             this.CardPersonInfo.Controls.Add(this.label13);
             this.CardPersonInfo.Controls.Add(this.label12);
             this.CardPersonInfo.Controls.Add(this.label11);
@@ -263,7 +268,6 @@ namespace DVDL.Forms.PeopleManagement
             // RBFemale
             // 
             this.RBFemale.AutoSize = true;
-            this.RBFemale.Checked = true;
             this.RBFemale.Location = new System.Drawing.Point(360, 161);
             this.RBFemale.Name = "RBFemale";
             this.RBFemale.Size = new System.Drawing.Size(95, 29);
@@ -271,16 +275,19 @@ namespace DVDL.Forms.PeopleManagement
             this.RBFemale.TabStop = true;
             this.RBFemale.Text = "Female";
             this.RBFemale.UseVisualStyleBackColor = true;
+            this.RBFemale.CheckedChanged += new System.EventHandler(this.RBFemale_CheckedChanged);
             // 
             // RBMale
             // 
             this.RBMale.AutoSize = true;
+            this.RBMale.Checked = true;
             this.RBMale.Location = new System.Drawing.Point(218, 161);
             this.RBMale.Name = "RBMale";
             this.RBMale.Size = new System.Drawing.Size(73, 29);
             this.RBMale.TabIndex = 7;
             this.RBMale.Text = "Male";
             this.RBMale.UseVisualStyleBackColor = true;
+            this.RBMale.CheckedChanged += new System.EventHandler(this.RBMale_CheckedChanged);
             // 
             // BtnSave
             // 
@@ -317,7 +324,6 @@ namespace DVDL.Forms.PeopleManagement
             this.CBCountry.Name = "CBCountry";
             this.CBCountry.Size = new System.Drawing.Size(221, 33);
             this.CBCountry.TabIndex = 10;
-            this.CBCountry.Validating += new System.ComponentModel.CancelEventHandler(this.CBCountry_Validating);
             // 
             // DTPDateOfBirth
             // 
@@ -542,6 +548,17 @@ namespace DVDL.Forms.PeopleManagement
             // EP
             // 
             this.EP.ContainerControl = this;
+            // 
+            // llblSetImage
+            // 
+            this.llblSetImage.AutoSize = true;
+            this.llblSetImage.Location = new System.Drawing.Point(1049, 347);
+            this.llblSetImage.Name = "llblSetImage";
+            this.llblSetImage.Size = new System.Drawing.Size(101, 25);
+            this.llblSetImage.TabIndex = 26;
+            this.llblSetImage.TabStop = true;
+            this.llblSetImage.Text = "Set Image";
+            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
             // 
             // FrmAdd_EditPersonInfo
             // 
@@ -590,6 +607,7 @@ namespace DVDL.Forms.PeopleManagement
             //
             this.DTPDateOfBirth.MaxDate = DateTime.Now - new TimeSpan(157788, 0, 0);
         }
+        
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
@@ -635,6 +653,7 @@ namespace DVDL.Forms.PeopleManagement
             this.lblPersonId = new System.Windows.Forms.Label();
             this.LBLFormStatus = new System.Windows.Forms.Label();
             this.EP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.llblSetImage = new System.Windows.Forms.LinkLabel();
             this.CardPersonInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -732,6 +751,7 @@ namespace DVDL.Forms.PeopleManagement
             // 
             // CardPersonInfo
             // 
+            this.CardPersonInfo.Controls.Add(this.llblSetImage);
             this.CardPersonInfo.Controls.Add(this.label13);
             this.CardPersonInfo.Controls.Add(this.label12);
             this.CardPersonInfo.Controls.Add(this.label11);
@@ -824,22 +844,22 @@ namespace DVDL.Forms.PeopleManagement
             // RBFemale
             // 
             this.RBFemale.AutoSize = true;
-            this.RBFemale.Checked = true;
             this.RBFemale.Location = new System.Drawing.Point(360, 161);
             this.RBFemale.Name = "RBFemale";
             this.RBFemale.Size = new System.Drawing.Size(95, 29);
             this.RBFemale.TabIndex = 23;
-            this.RBFemale.TabStop = true;
             this.RBFemale.Text = "Female";
             this.RBFemale.UseVisualStyleBackColor = true;
             // 
             // RBMale
             // 
             this.RBMale.AutoSize = true;
+            this.RBMale.Checked = true;
             this.RBMale.Location = new System.Drawing.Point(218, 161);
             this.RBMale.Name = "RBMale";
             this.RBMale.Size = new System.Drawing.Size(73, 29);
             this.RBMale.TabIndex = 7;
+            this.RBMale.TabStop = true;
             this.RBMale.Text = "Male";
             this.RBMale.UseVisualStyleBackColor = true;
             // 
@@ -878,7 +898,6 @@ namespace DVDL.Forms.PeopleManagement
             this.CBCountry.Name = "CBCountry";
             this.CBCountry.Size = new System.Drawing.Size(221, 33);
             this.CBCountry.TabIndex = 10;
-            this.CBCountry.Validating += new System.ComponentModel.CancelEventHandler(this.CBCountry_Validating);
             // 
             // DTPDateOfBirth
             // 
@@ -901,6 +920,7 @@ namespace DVDL.Forms.PeopleManagement
             // RTBPhone
             // 
             this.RTBPhone.Location = new System.Drawing.Point(730, 160);
+            this.RTBPhone.MaxLength = 11;
             this.RTBPhone.Multiline = false;
             this.RTBPhone.Name = "RTBPhone";
             this.RTBPhone.Size = new System.Drawing.Size(221, 25);
@@ -1103,6 +1123,17 @@ namespace DVDL.Forms.PeopleManagement
             // EP
             // 
             this.EP.ContainerControl = this;
+            // 
+            // llblSetImage
+            // 
+            this.llblSetImage.AutoSize = true;
+            this.llblSetImage.Location = new System.Drawing.Point(1049, 347);
+            this.llblSetImage.Name = "llblSetImage";
+            this.llblSetImage.Size = new System.Drawing.Size(101, 25);
+            this.llblSetImage.TabIndex = 26;
+            this.llblSetImage.TabStop = true;
+            this.llblSetImage.Text = "Set Image";
+            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
             // 
             // FrmAdd_EditPersonInfo
             // 
@@ -1182,5 +1213,6 @@ namespace DVDL.Forms.PeopleManagement
         private System.Windows.Forms.Label Label10;
         private System.Windows.Forms.Label LBLFormStatus;
         private System.Windows.Forms.ErrorProvider EP;
+        private LinkLabel llblSetImage;
     }
 }

@@ -32,7 +32,7 @@ namespace DVDL
         Person.FirstName,
         Person.SecondName,
         Person.ThirdName,
-        Person.FourthName
+        Person.LastName
     }.Where(x => !string.IsNullOrWhiteSpace(x)));
 
             lblPersonNationalNo.Text = Person.NationalNo ?? "N/A";
@@ -42,11 +42,11 @@ namespace DVDL
                 ? Person.DateOfBirth.ToShortDateString()
                 : "N/A";
 
-            lblPersonGender.Text = Person.Gender == '\0' ? "U" : Person.Gender.ToString();
-            lblPersonPhone.Text = string.IsNullOrWhiteSpace(Person.PhoneNumber) ? "N/A" : Person.PhoneNumber;
+            lblPersonGender.Text = Person.Gender == '0' ? "U" : Person.Gender.ToString();
+            lblPersonPhone.Text = string.IsNullOrWhiteSpace(Person.Phone) ? "N/A" : Person.Phone;
             lblPersonEmail.Text = string.IsNullOrWhiteSpace(Person.Email) ? "N/A" : Person.Email;
 
-            lblPersonCountry.Text = Person.CountryID == 0 ? "N/A" : Person.CountryID.ToString();
+            lblPersonCountry.Text = Person.NationalityCountryID == 0 ? "N/A" : Person.NationalityCountryID.ToString();
             // TODO: Replace with country name lookup later
 
             lblPersonAddress.Text = string.IsNullOrWhiteSpace(Person.Address) ? "N/A" : Person.Address;

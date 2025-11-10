@@ -1,33 +1,33 @@
 ﻿using System.Data;
 using DVLD_DataAccessLayer;
 
-namespace DVLD_BussinessLayer
+namespace CountriesBusinessLayer
 {
-    internal class Countries
+    public class Countries
     {
-        short CountryID { get; set; }
+        short NationalityCountryID { get; set; }
         string CountryName { get; set; }
 
         public Countries()
         {
-            CountryID = 51;
+            NationalityCountryID = 51;
             CountryName = "Egypt";
         }
 
-        private Countries(short CountryID, string CountryName)
+        private Countries(short NationalityCountryID, string CountryName)
         {
-            this.CountryID = CountryID;
+            this.NationalityCountryID = NationalityCountryID;
             this.CountryName = CountryName;
         }
 
         public static Countries Find(int ID)
         {
-            short CountryID = -1;
+            short NationalityCountryID = -1;
             string CountryName = "";
 
-            if (CountriesData.GetCountryByID(CountryID, ref CountryName))
+            if (CountriesData.GetCountryByID(NationalityCountryID, ref CountryName))
             {
-                return new Countries(CountryID, CountryName);
+                return new Countries(NationalityCountryID, CountryName);
             }
             else
             {

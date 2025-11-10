@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using PeopleBusinessLayer;
 
 //Add boolians here that show me that all fields filled in right way to use it in save button to avoid doing validation twice
 
@@ -12,10 +13,18 @@ namespace DVDL.Forms.PeopleManagement
         private bool IsSecondNameValid = false;
         private bool IsThirdNameValid = false;
         private bool IsLastNameValid = false;
+        private bool IsDateOfBirthValid = false;
+        private bool IsAddressValid = false;
+        private bool IsPhoneValid = false;
+        private bool IsEmailValid = true;
+        private bool IsNationalNoValid = false;
 
         private bool IsAllFieldsValid()
         {
-            return IsFirstNameValid && IsSecondNameValid && IsThirdNameValid && IsLastNameValid;
+            return IsFirstNameValid && IsSecondNameValid
+                && IsThirdNameValid && IsLastNameValid
+                && IsDateOfBirthValid && IsAddressValid
+                && IsPhoneValid && IsEmailValid && IsNationalNoValid;
         }
 
         private void RTBNameFirst_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -106,78 +115,128 @@ namespace DVDL.Forms.PeopleManagement
             }
         }
 
-        private void CBCountry_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(CBCountry.Text))
-            {
-                EP.SetError((Control)sender, "you must add your first name");
-            }
-            else
-            {
-                EP.SetError((Control)sender, "");
-            }
-        }
-
         private void DTPDateOfBirth_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //this is the max age (18) years old (365.25(Days per year)×18(Years)×24(Hours per day))
             TimeSpan MinAge = new TimeSpan(157788, 0, 0);
+            DateTime MaxDate = new DateTime(1900, 1, 1);
 
-            if (DateTime.Now - DTPDateOfBirth.Value <= MinAge)
+            if ((DateTime.Now - DTPDateOfBirth.Value <= MinAge || DTPDateOfBirth.Value <= MaxDate)
+                && string.IsNullOrWhiteSpace(DTPDateOfBirth.Text))
             {
                 EP.SetError((Control)sender, "The Age must be bigger than 18");
+                IsDateOfBirthValid = false;
+                e.Cancel = true;
             }
             else
             {
                 EP.SetError((Control)sender, "");
+                IsDateOfBirthValid = true;
+                e.Cancel = false;
             }
         }
 
         private void RTBAddress_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
+            if (string.IsNullOrWhiteSpace(RTBAddress.Text))
             {
-                EP.SetError((Control)sender, "you must add Address");
+                EP.SetError((Control)sender, "You Must Add Address");
+                IsAddressValid = false;
+                e.Cancel = true;
             }
             else
             {
                 EP.SetError((Control)sender, "");
+                IsAddressValid = true;
+                e.Cancel = false;
             }
         }
 
         private void RTBPhone_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
+            string phone = RTBPhone.Text.Trim();
+
+            // Check if phone is empty or not digits or not 11 characters
+            if (string.IsNullOrWhiteSpace(phone) || phone.Any(char.IsLetter) || phone.Any(char.IsPunctuation) || phone.Length != 11)
             {
-                EP.SetError((Control)sender, "you must add Phone");
+                EP.SetError(RTBPhone, "Enter a valid phone number (must be 11 digits)");
+                IsPhoneValid = false;
+                e.Cancel = true;
             }
+
+            else if (phone.Length >= 3)
+            {
+                string prefix = phone.Substring(0, 3);
+                if (prefix != "010" && prefix != "011" && prefix != "012" && prefix != "015")
+                {
+                    EP.SetError(RTBPhone, "Phone must start with 010, 011, 012, or 015");
+                    IsPhoneValid = false;
+                    e.Cancel = true;
+                }
+                else
+                {
+                    EP.SetError(RTBPhone, "");
+                    IsPhoneValid = true;
+                    e.Cancel = false;
+                }
+            }
+
             else
             {
-                EP.SetError((Control)sender, "");
+                EP.SetError(RTBPhone, "");
+                IsPhoneValid = true;
+                e.Cancel = false;
             }
+
         }
 
         private void RTBEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
+            if (!string.IsNullOrWhiteSpace(RTBEmail.Text))
             {
-                EP.SetError((Control)sender, "You Must Enter Valid Email");
+                if (!(RTBEmail.Text.Contains("@gmail.com")
+                    || RTBEmail.Text.Contains("@hotmail.com")
+                    || RTBEmail.Text.Contains("@yahoo.com")
+                    ))
+                {
+                    EP.SetError(RTBEmail, "Enter Valid Email");
+                    IsEmailValid = false;
+                    e.Cancel = true;
+                }
+                else
+                {
+                    EP.SetError(RTBEmail, "");
+                    IsEmailValid = true;
+                    e.Cancel = false;
+                }
             }
             else
             {
-                EP.SetError((Control)sender, "");
+                EP.SetError(RTBEmail, "");
+                IsEmailValid = true;
+                e.Cancel = false;
             }
         }
 
         private void RTBNationalNo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(RTBNameFirst.Text))
+            if (string.IsNullOrWhiteSpace(RTBNationalNo.Text))
             {
                 EP.SetError((Control)sender, "you must add National Number");
+                IsNationalNoValid = false;
+                e.Cancel = true;
+            }
+            else if (People.IsNationalNoExist(RTBNationalNo.Text))
+            {
+                EP.SetError((Control)sender, "This National Nubmer Is Used");
+                IsNationalNoValid = false;
+                e.Cancel = true;
             }
             else
             {
                 EP.SetError((Control)sender, "");
+                IsNationalNoValid = true;
+                e.Cancel = false;
             }
         }
 

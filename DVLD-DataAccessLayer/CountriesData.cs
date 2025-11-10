@@ -6,14 +6,14 @@ namespace DVLD_DataAccessLayer
 {
     public class CountriesData
     {
-        static public bool GetCountryByID(int CountryID, ref string CountryName)
+        static public bool GetCountryByID(int NationalityCountryID, ref string CountryName)
         {
             bool IsFound = false;
 
-            string Query = "SELECT 1 FROM People WHERE CountryID = @CountryID";
+            string Query = "SELECT 1 FROM People WHERE NationalityCountryID = @NationalityCountryID";
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(Query, Connection);
-            command.Parameters.AddWithValue("@CountryID", CountryID);
+            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
             try
             {

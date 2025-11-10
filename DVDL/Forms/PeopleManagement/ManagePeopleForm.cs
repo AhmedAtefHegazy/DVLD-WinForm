@@ -40,22 +40,18 @@ namespace DVDL
 
 
 
-        private void DGVManagePeople_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             Form AddPerson = new FrmAdd_EditPersonInfo(-1);
             AddPerson.ShowDialog();
-
+            RefreshTable();
         }
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form AddPerson = new FrmAdd_EditPersonInfo(-1);
             AddPerson.ShowDialog();
+            RefreshTable();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,6 +60,7 @@ namespace DVDL
 
             Form EditPerson = new FrmAdd_EditPersonInfo(PersonID);
             EditPerson.ShowDialog();
+            RefreshTable();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
