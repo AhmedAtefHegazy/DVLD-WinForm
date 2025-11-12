@@ -179,6 +179,7 @@ Some Fields Is Invalid", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Sto
             if (PBPersonImage.Image != null && PBPersonImage.Image != Resources.Male_512 && PBPersonImage.Image != Resources.Female_512)
             {
                 PBPersonImage.Image = (RBMale.Checked) ? Resources.Male_512 : Resources.Female_512;
+                MessageBox.Show(PBPersonImage.ImageLocation);
                 LlblRemoveImage.Visible = false;
             }
         }

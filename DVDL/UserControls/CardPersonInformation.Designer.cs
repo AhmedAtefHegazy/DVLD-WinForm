@@ -392,6 +392,7 @@
             this.LLEditPersonInfo.TabIndex = 1;
             this.LLEditPersonInfo.TabStop = true;
             this.LLEditPersonInfo.Text = "Edit Person Info";
+            this.LLEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLEditPersonInfo_LinkClicked);
             // 
             // PBPersonImage
             // 

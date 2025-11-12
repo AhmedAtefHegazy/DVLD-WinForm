@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using DVDL.Forms.PeopleManagement;
 using DVDL.Properties;
 using PeopleBusinessLayer;
 
@@ -64,5 +65,10 @@ namespace DVDL
             }
         }
 
+        private void LLEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form FrmEditPerson = new FrmAdd_EditPersonInfo(Convert.ToInt32(lblPersonId.Text));
+            FrmEditPerson.ShowDialog();
+        }
     }
 }
