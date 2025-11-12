@@ -42,15 +42,15 @@ namespace DVDL
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            Form AddPerson = new FrmAdd_EditPersonInfo(-1);
-            AddPerson.ShowDialog();
+            Form FrmAddPerson = new FrmAdd_EditPersonInfo(-1);
+            FrmAddPerson.ShowDialog();
             RefreshTable();
         }
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form AddPerson = new FrmAdd_EditPersonInfo(-1);
-            AddPerson.ShowDialog();
+            Form FrmAddPerson = new FrmAdd_EditPersonInfo(-1);
+            FrmAddPerson.ShowDialog();
             RefreshTable();
         }
 
@@ -58,8 +58,8 @@ namespace DVDL
         {
             int PersonID = (int)DGVManagePeople.SelectedRows[0].Cells["PersonID"].Value;
 
-            Form EditPerson = new FrmAdd_EditPersonInfo(PersonID);
-            EditPerson.ShowDialog();
+            Form FrmEditPerson = new FrmAdd_EditPersonInfo(PersonID);
+            FrmEditPerson.ShowDialog();
             RefreshTable();
         }
 

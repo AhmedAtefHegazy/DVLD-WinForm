@@ -78,6 +78,7 @@ namespace DVDL.Forms.PeopleManagement
             this.LBLFormStatus = new System.Windows.Forms.Label();
             this.llblSetImage = new System.Windows.Forms.LinkLabel();
             this.EP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.LlblRemoveImage = new System.Windows.Forms.LinkLabel();
             this.CardPersonInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -175,9 +176,11 @@ namespace DVDL.Forms.PeopleManagement
             // 
             // CardPersonInfo
             // 
+            this.CardPersonInfo.Controls.Add(this.LlblRemoveImage);
             this.CardPersonInfo.Controls.Add(this.llblSetImage);
             this.CardPersonInfo.Controls.Add(this.label13);
             this.CardPersonInfo.Controls.Add(this.label12);
+            this.CardPersonInfo.Controls.Add(this.LlblRemoveImage);
             this.CardPersonInfo.Controls.Add(this.label11);
             this.CardPersonInfo.Controls.Add(this.Label10);
             this.CardPersonInfo.Controls.Add(this.pictureBox10);
@@ -560,6 +563,17 @@ namespace DVDL.Forms.PeopleManagement
             this.llblSetImage.Text = "Set Image";
             this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
             // 
+            // LlblRemoveImage
+            // 
+            this.LlblRemoveImage.AutoSize = true;
+            this.LlblRemoveImage.Location = new System.Drawing.Point(1035, 388);
+            this.LlblRemoveImage.Name = "LlblRemoveImage";
+            this.LlblRemoveImage.Size = new System.Drawing.Size(143, 25);
+            this.LlblRemoveImage.TabIndex = 27;
+            this.LlblRemoveImage.TabStop = true;
+            this.LlblRemoveImage.Text = "Remove Image";
+            this.LlblRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblRemoveImage_LinkClicked);
+            // 
             // FrmAdd_EditPersonInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,6 +634,7 @@ namespace DVDL.Forms.PeopleManagement
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CardPersonInfo = new System.Windows.Forms.GroupBox();
+            this.llblSetImage = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -653,7 +668,7 @@ namespace DVDL.Forms.PeopleManagement
             this.lblPersonId = new System.Windows.Forms.Label();
             this.LBLFormStatus = new System.Windows.Forms.Label();
             this.EP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.llblSetImage = new System.Windows.Forms.LinkLabel();
+            this.LlblRemoveImage = new System.Windows.Forms.LinkLabel();
             this.CardPersonInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -751,6 +766,7 @@ namespace DVDL.Forms.PeopleManagement
             // 
             // CardPersonInfo
             // 
+            this.CardPersonInfo.Controls.Add(this.LlblRemoveImage);
             this.CardPersonInfo.Controls.Add(this.llblSetImage);
             this.CardPersonInfo.Controls.Add(this.label13);
             this.CardPersonInfo.Controls.Add(this.label12);
@@ -794,6 +810,17 @@ namespace DVDL.Forms.PeopleManagement
             this.CardPersonInfo.Size = new System.Drawing.Size(1254, 457);
             this.CardPersonInfo.TabIndex = 1;
             this.CardPersonInfo.TabStop = false;
+            // 
+            // llblSetImage
+            // 
+            this.llblSetImage.AutoSize = true;
+            this.llblSetImage.Location = new System.Drawing.Point(1049, 347);
+            this.llblSetImage.Name = "llblSetImage";
+            this.llblSetImage.Size = new System.Drawing.Size(101, 25);
+            this.llblSetImage.TabIndex = 26;
+            this.llblSetImage.TabStop = true;
+            this.llblSetImage.Text = "Set Image";
+            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
             // 
             // label13
             // 
@@ -1124,16 +1151,15 @@ namespace DVDL.Forms.PeopleManagement
             // 
             this.EP.ContainerControl = this;
             // 
-            // llblSetImage
+            // LlblRemoveImage
             // 
-            this.llblSetImage.AutoSize = true;
-            this.llblSetImage.Location = new System.Drawing.Point(1049, 347);
-            this.llblSetImage.Name = "llblSetImage";
-            this.llblSetImage.Size = new System.Drawing.Size(101, 25);
-            this.llblSetImage.TabIndex = 26;
-            this.llblSetImage.TabStop = true;
-            this.llblSetImage.Text = "Set Image";
-            this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
+            this.LlblRemoveImage.AutoSize = true;
+            this.LlblRemoveImage.Location = new System.Drawing.Point(1020, 388);
+            this.LlblRemoveImage.Name = "LlblRemoveImage";
+            this.LlblRemoveImage.Size = new System.Drawing.Size(143, 25);
+            this.LlblRemoveImage.TabIndex = 27;
+            this.LlblRemoveImage.TabStop = true;
+            this.LlblRemoveImage.Text = "Remove Image";
             // 
             // FrmAdd_EditPersonInfo
             // 
@@ -1214,5 +1240,6 @@ namespace DVDL.Forms.PeopleManagement
         private System.Windows.Forms.Label LBLFormStatus;
         private System.Windows.Forms.ErrorProvider EP;
         private LinkLabel llblSetImage;
+        private LinkLabel LlblRemoveImage;
     }
 }

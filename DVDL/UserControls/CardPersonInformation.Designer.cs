@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.CardPersonInfo = new System.Windows.Forms.GroupBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -57,8 +58,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LLEditPersonInfo = new System.Windows.Forms.LinkLabel();
             this.PBPersonImage = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.CardPersonInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -68,7 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBPersonImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // CardPersonInfo
@@ -111,10 +111,20 @@
             this.CardPersonInfo.TabStop = false;
             this.CardPersonInfo.Text = "Person Information";
             // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::DVDL.Properties.Resources.Number_32;
+            this.pictureBox9.Location = new System.Drawing.Point(153, 46);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(32, 33);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 17;
+            this.pictureBox9.TabStop = false;
+            // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::DVDL.Properties.Resources.Phone_32;
-            this.pictureBox8.Location = new System.Drawing.Point(729, 145);
+            this.pictureBox8.Location = new System.Drawing.Point(694, 145);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(32, 33);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -124,7 +134,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::DVDL.Properties.Resources.Country_32;
-            this.pictureBox7.Location = new System.Drawing.Point(729, 194);
+            this.pictureBox7.Location = new System.Drawing.Point(694, 194);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(32, 33);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -134,7 +144,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::DVDL.Properties.Resources.Calendar_32;
-            this.pictureBox6.Location = new System.Drawing.Point(729, 96);
+            this.pictureBox6.Location = new System.Drawing.Point(694, 96);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(32, 33);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -235,7 +245,7 @@
             // 
             this.lblPersonCountry.AutoSize = true;
             this.lblPersonCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonCountry.Location = new System.Drawing.Point(781, 198);
+            this.lblPersonCountry.Location = new System.Drawing.Point(746, 198);
             this.lblPersonCountry.Name = "lblPersonCountry";
             this.lblPersonCountry.Size = new System.Drawing.Size(59, 20);
             this.lblPersonCountry.TabIndex = 12;
@@ -245,7 +255,7 @@
             // 
             this.lblPersonPhone.AutoSize = true;
             this.lblPersonPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonPhone.Location = new System.Drawing.Point(781, 149);
+            this.lblPersonPhone.Location = new System.Drawing.Point(746, 149);
             this.lblPersonPhone.Name = "lblPersonPhone";
             this.lblPersonPhone.Size = new System.Drawing.Size(59, 20);
             this.lblPersonPhone.TabIndex = 12;
@@ -255,7 +265,7 @@
             // 
             this.lblPersonDateOfBirth.AutoSize = true;
             this.lblPersonDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonDateOfBirth.Location = new System.Drawing.Point(781, 100);
+            this.lblPersonDateOfBirth.Location = new System.Drawing.Point(746, 100);
             this.lblPersonDateOfBirth.Name = "lblPersonDateOfBirth";
             this.lblPersonDateOfBirth.Size = new System.Drawing.Size(59, 20);
             this.lblPersonDateOfBirth.TabIndex = 12;
@@ -286,7 +296,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(566, 194);
+            this.label9.Location = new System.Drawing.Point(531, 194);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 25);
             this.label9.TabIndex = 10;
@@ -296,7 +306,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(566, 145);
+            this.label8.Location = new System.Drawing.Point(531, 145);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 25);
             this.label8.TabIndex = 9;
@@ -306,7 +316,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(566, 96);
+            this.label7.Location = new System.Drawing.Point(531, 96);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 25);
             this.label7.TabIndex = 8;
@@ -394,16 +404,6 @@
             this.PBPersonImage.TabIndex = 0;
             this.PBPersonImage.TabStop = false;
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::DVDL.Properties.Resources.Number_32;
-            this.pictureBox9.Location = new System.Drawing.Point(153, 46);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(32, 33);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 17;
-            this.pictureBox9.TabStop = false;
-            // 
             // CardPersonInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,6 +413,7 @@
             this.Size = new System.Drawing.Size(1128, 379);
             this.CardPersonInfo.ResumeLayout(false);
             this.CardPersonInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -422,7 +423,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBPersonImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
