@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.DGVManagePeople = new System.Windows.Forms.DataGridView();
             this.CMSManagePeople = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -45,10 +45,11 @@
             this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.lblFilterPeopleBy = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBFilterBy = new System.Windows.Forms.ComboBox();
             this.btnCloseManagePeopleForm = new System.Windows.Forms.Button();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.RTBFilterBy = new System.Windows.Forms.RichTextBox();
             this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,14 +86,14 @@
             this.DGVManagePeople.AllowUserToDeleteRows = false;
             this.DGVManagePeople.AutoGenerateColumns = false;
             this.DGVManagePeople.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGVManagePeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVManagePeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGVManagePeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVManagePeople.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PersonID,
@@ -110,14 +111,14 @@
             this.NationalityCountryID});
             this.DGVManagePeople.ContextMenuStrip = this.CMSManagePeople;
             this.DGVManagePeople.DataSource = this.peopleBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVManagePeople.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVManagePeople.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVManagePeople.Location = new System.Drawing.Point(12, 303);
             this.DGVManagePeople.Name = "DGVManagePeople";
             this.DGVManagePeople.ReadOnly = true;
@@ -223,13 +224,16 @@
             this.lblFilterPeopleBy.TabIndex = 6;
             this.lblFilterPeopleBy.Text = "Filter By :";
             // 
-            // comboBox1
+            // CBFilterBy
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(112, 265);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 21);
-            this.comboBox1.TabIndex = 7;
+            this.CBFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CBFilterBy.FormattingEnabled = true;
+            this.CBFilterBy.Location = new System.Drawing.Point(122, 264);
+            this.CBFilterBy.Name = "CBFilterBy";
+            this.CBFilterBy.Size = new System.Drawing.Size(177, 24);
+            this.CBFilterBy.TabIndex = 7;
+            this.CBFilterBy.SelectedIndexChanged += new System.EventHandler(this.CBFilterBy_SelectedIndexChanged);
             // 
             // btnCloseManagePeopleForm
             // 
@@ -265,9 +269,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // RTBFilterBy
+            // 
+            this.RTBFilterBy.Location = new System.Drawing.Point(305, 264);
+            this.RTBFilterBy.Multiline = false;
+            this.RTBFilterBy.Name = "RTBFilterBy";
+            this.RTBFilterBy.Size = new System.Drawing.Size(238, 24);
+            this.RTBFilterBy.TabIndex = 8;
+            this.RTBFilterBy.Text = "";
+            this.RTBFilterBy.TextChanged += new System.EventHandler(this.RTBFilterBy_TextChanged);
+            this.RTBFilterBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RTBFilterBy_KeyPress);
+            // 
             // PersonID
             // 
             this.PersonID.DataPropertyName = "PersonID";
+            this.PersonID.Frozen = true;
             this.PersonID.HeaderText = "PersonID";
             this.PersonID.Name = "PersonID";
             this.PersonID.ReadOnly = true;
@@ -275,6 +291,7 @@
             // FirstName
             // 
             this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.Frozen = true;
             this.FirstName.HeaderText = "FirstName";
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
@@ -282,6 +299,7 @@
             // SecondName
             // 
             this.SecondName.DataPropertyName = "SecondName";
+            this.SecondName.Frozen = true;
             this.SecondName.HeaderText = "SecondName";
             this.SecondName.Name = "SecondName";
             this.SecondName.ReadOnly = true;
@@ -289,6 +307,7 @@
             // ThirdName
             // 
             this.ThirdName.DataPropertyName = "ThirdName";
+            this.ThirdName.Frozen = true;
             this.ThirdName.HeaderText = "ThirdName";
             this.ThirdName.Name = "ThirdName";
             this.ThirdName.ReadOnly = true;
@@ -296,6 +315,7 @@
             // LastName
             // 
             this.LastName.DataPropertyName = "LastName";
+            this.LastName.Frozen = true;
             this.LastName.HeaderText = "LastName";
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
@@ -303,6 +323,7 @@
             // Address
             // 
             this.Address.DataPropertyName = "Address";
+            this.Address.Frozen = true;
             this.Address.HeaderText = "Address";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
@@ -310,6 +331,7 @@
             // DateOfBirth
             // 
             this.DateOfBirth.DataPropertyName = "DateOfBirth";
+            this.DateOfBirth.Frozen = true;
             this.DateOfBirth.HeaderText = "DateOfBirth";
             this.DateOfBirth.Name = "DateOfBirth";
             this.DateOfBirth.ReadOnly = true;
@@ -365,7 +387,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCloseManagePeopleForm;
             this.ClientSize = new System.Drawing.Size(1370, 771);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.RTBFilterBy);
+            this.Controls.Add(this.CBFilterBy);
             this.Controls.Add(this.lblFilterPeopleBy);
             this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.lblRecordCount);
@@ -395,7 +418,7 @@
         private System.Windows.Forms.Label lblRecordCount;
         private System.Windows.Forms.Button btnAddPerson;
         private System.Windows.Forms.Label lblFilterPeopleBy;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBFilterBy;
         private System.Windows.Forms.BindingSource peopleBindingSource;
         private System.Windows.Forms.ContextMenuStrip CMSManagePeople;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
@@ -406,6 +429,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox RTBFilterBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SecondName;

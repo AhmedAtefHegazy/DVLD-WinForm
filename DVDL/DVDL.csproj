@@ -59,10 +59,10 @@
     <Compile Include="Forms\PeopleManagement\AddEditForm\Valiation\Validator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\FrmShowPersonForm.cs">
+    <Compile Include="Forms\PeopleManagement\ShowPeronInfoForm\FrmShowPersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\FrmShowPersonForm.Designer.cs">
+    <Compile Include="Forms\PeopleManagement\ShowPeronInfoForm\FrmShowPersonForm.Designer.cs">
       <DependentUpon>FrmShowPersonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CardPersonInformation.cs">
@@ -77,10 +77,10 @@
     <Compile Include="Forms\Main\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\ManagePeopleForm.cs">
+    <Compile Include="Forms\PeopleManagement\ManagePeopleForm\ManagePeopleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\ManagePeopleForm.Designer.cs">
+    <Compile Include="Forms\PeopleManagement\ManagePeopleForm\ManagePeopleForm.Designer.cs">
       <DependentUpon>ManagePeopleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -88,7 +88,7 @@
     <EmbeddedResource Include="Forms\PeopleManagement\AddEditForm\FrmAdd_EditPersonInfo.resx">
       <DependentUpon>FrmAdd_EditPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PeopleManagement\FrmShowPersonForm.resx">
+    <EmbeddedResource Include="Forms\PeopleManagement\ShowPeronInfoForm\FrmShowPersonForm.resx">
       <DependentUpon>FrmShowPersonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CardPersonInformation.resx">
@@ -97,7 +97,7 @@
     <EmbeddedResource Include="Forms\Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PeopleManagement\ManagePeopleForm.resx">
+    <EmbeddedResource Include="Forms\PeopleManagement\ManagePeopleForm\ManagePeopleForm.resx">
       <DependentUpon>ManagePeopleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

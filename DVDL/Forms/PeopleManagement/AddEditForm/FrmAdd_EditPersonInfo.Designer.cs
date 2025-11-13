@@ -354,6 +354,7 @@ namespace DVDL.Forms.PeopleManagement
             this.RTBPhone.Size = new System.Drawing.Size(221, 25);
             this.RTBPhone.TabIndex = 8;
             this.RTBPhone.Text = "";
+            this.RTBPhone.MaxLength= 11;
             this.RTBPhone.Validating += new System.ComponentModel.CancelEventHandler(this.RTBPhone_Validating);
             // 
             // RTBEmail
@@ -500,6 +501,7 @@ namespace DVDL.Forms.PeopleManagement
             // 
             this.PBPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PBPersonImage.Image = global::DVDL.Properties.Resources.Male_512;
+            this.PBPersonImage.ImageLocation="";
             this.PBPersonImage.Location = new System.Drawing.Point(988, 111);
             this.PBPersonImage.Name = "PBPersonImage";
             this.PBPersonImage.Size = new System.Drawing.Size(221, 217);

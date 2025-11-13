@@ -166,15 +166,18 @@ namespace DVDL.Forms.PeopleManagement
 
         private void BtnSave_Click(object sender, System.EventArgs e)
         {
-
-            if (PersonID == -1 && IsAllFieldsFilled())
+            if (PersonID == -1)
             {
-                if (AddPerson())
-                    MessageBox.Show("Person Added Successfully !");
-                else
-                    MessageBox.Show("Person Not Added !");
+                if (IsAllFieldsFilled())
+                {
 
-                return;
+                    if (AddPerson())
+                        MessageBox.Show("Person Added Successfully !");
+                    else
+                        MessageBox.Show("Person Not Added !");
+                }
+                else
+                    MessageBox.Show("Please fill all fields first");
             }
             else
             {
