@@ -83,19 +83,18 @@ namespace DVDL
         {
             int PersonID = (int)DGVManagePeople.SelectedRows[0].Cells["PersonID"].Value;
 
-
-
             if (MessageBox.Show($"Sure to delete {DGVManagePeople.SelectedRows[0].Cells["FirstName"].Value.ToString()}", "Delete Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                if (!PeopleBusinessLayer.People.DeletePerson(PersonID))
+                //Perform Delele and refresh
+                if (People.DeletePerson((int)DGVManagePeople.CurrentRow.Cells[0].Value))
                 {
-                    MessageBox.Show("Failed to delete, The user has data linked to him ! ");
+                    MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshTable();
                 }
 
-                RefreshTable();
+                else
+                    MessageBox.Show("Person was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                return;
 
         }
 
@@ -193,7 +192,7 @@ namespace DVDL
                     case "personid":
                         if (filterText.All(char.IsDigit))
                         {
-                            filterExpression = $"Convert(PersonID, 'System.String') LIKE '%{filterText}%'";
+                            filterExpression = $"Convert(PersonID, 'System.String') = '{filterText}'";
                             filteredRows = allPeople.Select(filterExpression);
                         }
                         break;
@@ -269,6 +268,11 @@ namespace DVDL
             MessageBox.Show("Will coming soon !", "Not Ready yet", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void DGVManagePeople_DoubleClick(object sender, EventArgs e)
+        {
+            Form frm = new FrmShowPersonForm((int)DGVManagePeople.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }
 

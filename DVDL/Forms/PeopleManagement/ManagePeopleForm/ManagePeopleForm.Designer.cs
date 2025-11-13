@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.DGVManagePeople = new System.Windows.Forms.DataGridView();
             this.CMSManagePeople = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -42,7 +43,6 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.lblFilterPeopleBy = new System.Windows.Forms.Label();
             this.CBFilterBy = new System.Windows.Forms.ComboBox();
@@ -63,10 +63,11 @@
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImagePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NationalityCountryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).BeginInit();
             this.CMSManagePeople.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -86,14 +87,14 @@
             this.DGVManagePeople.AllowUserToDeleteRows = false;
             this.DGVManagePeople.AutoGenerateColumns = false;
             this.DGVManagePeople.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGVManagePeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVManagePeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVManagePeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVManagePeople.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PersonID,
@@ -111,21 +112,30 @@
             this.NationalityCountryID});
             this.DGVManagePeople.ContextMenuStrip = this.CMSManagePeople;
             this.DGVManagePeople.DataSource = this.peopleBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVManagePeople.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVManagePeople.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVManagePeople.Location = new System.Drawing.Point(12, 303);
             this.DGVManagePeople.Name = "DGVManagePeople";
             this.DGVManagePeople.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVManagePeople.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGVManagePeople.RowHeadersWidth = 65;
             this.DGVManagePeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVManagePeople.Size = new System.Drawing.Size(1347, 359);
             this.DGVManagePeople.TabIndex = 2;
+            this.DGVManagePeople.DoubleClick += new System.EventHandler(this.DGVManagePeople_DoubleClick);
             // 
             // CMSManagePeople
             // 
@@ -199,10 +209,6 @@
             this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(186, 46);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             this.phoneCallToolStripMenuItem.Click += new System.EventHandler(this.phoneCallToolStripMenuItem_Click);
-            // 
-            // peopleBindingSource
-            // 
-            this.peopleBindingSource.DataSource = typeof(PeopleBusinessLayer.People);
             // 
             // lblRecordCount
             // 
@@ -381,6 +387,10 @@
             this.NationalityCountryID.ReadOnly = true;
             this.NationalityCountryID.Width = 179;
             // 
+            // peopleBindingSource
+            // 
+            this.peopleBindingSource.DataSource = typeof(PeopleBusinessLayer.People);
+            // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,8 +412,8 @@
             this.Text = "Manage People";
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).EndInit();
             this.CMSManagePeople.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
