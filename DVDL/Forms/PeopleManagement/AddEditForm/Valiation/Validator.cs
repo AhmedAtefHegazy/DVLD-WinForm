@@ -19,7 +19,7 @@ namespace DVDL.Forms.PeopleManagement
         private bool IsEmailValid = true;
         private bool IsNationalNoValid = false;
 
-        private bool IsAllFieldsValid()
+        private bool IsAllFieldsFilled()
         {
             return IsFirstNameValid && IsSecondNameValid
                 && IsThirdNameValid && IsLastNameValid

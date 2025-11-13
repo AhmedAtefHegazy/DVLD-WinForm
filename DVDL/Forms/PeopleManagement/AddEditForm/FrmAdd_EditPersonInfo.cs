@@ -9,7 +9,7 @@ namespace DVDL.Forms.PeopleManagement
 {
     public partial class FrmAdd_EditPersonInfo : Form
     {
-        int PersonID = 0;
+        int PersonID = -1;
 
         public FrmAdd_EditPersonInfo(int PersonID)
         {
@@ -25,23 +25,32 @@ namespace DVDL.Forms.PeopleManagement
             CBCountry.DataSource = Countries.GetAllCountries();
             CBCountry.DisplayMember = "CountryName";
             CBCountry.ValueMember = "CountryID";
-            CBCountry.SelectedValue = "51";
+            CBCountry.SelectedValue = 51;
         }
 
-        private void AddPerson()
+        private bool AddPerson()
         {
+            bool IsPersonAdded = false;
+
             People Person = new People();
             FillPesonWithFields(Person, true);
-            Person.Save();
-
+            IsPersonAdded = Person.Save();
+            PersonID = Person.PersonID;
+            PBPersonImage.ImageLocation = Person.ImagePath;
             lblPersonId.Text = Person.PersonID.ToString();
+            LBLFormStatus.Text = "Update Person";
+            return IsPersonAdded;
         }
 
-        private void UpdatePerson(int PersonID)
+        private bool UpdatePerson(int PersonID)
         {
+            bool IsPersonUpdated = false;
+
             People Person = People.Find(PersonID);
             FillPesonWithFields(Person);
-            Person.Save();
+            IsPersonUpdated = Person.Save();
+
+            return IsPersonUpdated;
         }
 
         private void FillPesonWithFields(People Person, bool IsAddNew = false)
@@ -56,34 +65,64 @@ namespace DVDL.Forms.PeopleManagement
             Person.Phone = RTBPhone.Text;
             Person.Email = RTBEmail.Text;
             Person.Gender = RBMale.Checked ? 'M' : (RBFemale.Checked ? 'F' : '\0');
-            Person.ImagePath = PBPersonImage.ImageLocation;
 
-            Person.ImagePath = (Person.ImagePath != "") ?
-            SaveImage(Person.ImagePath, IsAddNew) :
-                "";
+            Person.ImagePath = SaveImage(PBPersonImage.ImageLocation, Person.ImagePath, IsAddNew);
 
-            Person.NationalityCountryID = (short)CBCountry.SelectedIndex;
+            Person.NationalityCountryID = Convert.ToInt16(CBCountry.SelectedValue);
         }
 
-        private string SaveImage(string PersonImagePath, bool IsAddNew = false)
+        private string SaveImage(string SelectedImagePath, string OldSavedPath, bool IsAddNew = false)
         {
-            if (!Directory.Exists("C:/DVDL-People-Images"))
-                Directory.CreateDirectory("C:/DVDL-People-Images");
+            // If PictureBox has default image (male/female), treat as no personal image
+            bool isDefaultImage =
+                PBPersonImage.Image == Resources.Male_512 ||
+                PBPersonImage.Image == Resources.Female_512;
 
-            string SavePath = $"C:/DVDL-People-Images/{Guid.NewGuid()}{Path.GetExtension(PersonImagePath)}";
+            // Case 1: user selected a valid file
+            if (File.Exists(SelectedImagePath) && !isDefaultImage)
+            {
+                // Ensure save directory exists
+                string saveDir = "C:/DVDL-People-Images";
+                if (!Directory.Exists(saveDir))
+                    Directory.CreateDirectory(saveDir);
 
-            if (!IsAddNew)
-                File.Delete(PersonImagePath);
+                // Generate a unique filename
+                string SavePath = Path.Combine(saveDir, $"{Guid.NewGuid()}{Path.GetExtension(SelectedImagePath)}");
 
-            File.Copy(PersonImagePath, SavePath);
+                // Copy new file
+                File.Copy(SelectedImagePath, SavePath, true);
 
-            return SavePath;
+                // If editing an existing person, remove old image if it’s different
+                if (!IsAddNew && File.Exists(OldSavedPath) && OldSavedPath != SelectedImagePath)
+                    File.Delete(OldSavedPath);
+
+                return SavePath;
+            }
+
+            // Case 2: default image (means user didn’t select a personal image)
+            else if (!isDefaultImage)
+            {
+                // If editing and old file existed, delete it
+                if (!IsAddNew && File.Exists(OldSavedPath))
+                    File.Delete(OldSavedPath);
+
+                return "";
+            }
+
+            // Case 3: unchanged old image (user didn’t modify anything)
+            else
+            {
+                return OldSavedPath;
+            }
         }
 
         private void FillFieldsWithPersonInfo(int PersonID)
         {
             if (PersonID == -1)
+            {
+                LlblRemoveImage.Visible = false;
                 return;
+            }
 
             People person = People.Find(PersonID);
             if (person == null)
@@ -116,38 +155,50 @@ namespace DVDL.Forms.PeopleManagement
             if (!string.IsNullOrEmpty(person.ImagePath) && File.Exists(person.ImagePath))
             {
                 PBPersonImage.ImageLocation = person.ImagePath;
+                LlblRemoveImage.Visible = true;
             }
             else
             {
                 PBPersonImage.Image = (person.Gender == 'F') ? Resources.Female_512 : Resources.Male_512;
+                LlblRemoveImage.Visible = false;
             }
         }
 
         private void BtnSave_Click(object sender, System.EventArgs e)
         {
-            if (IsAllFieldsValid())
+
+            if (PersonID == -1 && IsAllFieldsFilled())
             {
-                if (PersonID == -1)
-                {
-                    AddPerson();
-                }
+                if (AddPerson())
+                    MessageBox.Show("Person Added Successfully !");
                 else
-                {
-                    UpdatePerson(PersonID);
-                }
+                    MessageBox.Show("Person Not Added !");
 
                 return;
             }
+            else
+            {
 
-            MessageBox.Show(@"Cannot Save ! 
-Some Fields Is Invalid", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                if (UpdatePerson(PersonID))
+                    MessageBox.Show("Person Updated Successfully !");
+                else
+                    MessageBox.Show("Person Not Updated !");
+                return;
+            }
+        }
+
+        private void SetDefaultImage()
+        {
+            PBPersonImage.Image = RBMale.Checked ? Resources.Male_512 : Resources.Female_512;
+            PBPersonImage.ImageLocation = "";
+            LlblRemoveImage.Visible = false;
         }
 
         private void RBMale_CheckedChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(PBPersonImage.ImageLocation) || PBPersonImage.Image == Resources.Female_512)
             {
-                PBPersonImage.Image = Resources.Male_512;
+                SetDefaultImage();
             }
         }
 
@@ -155,7 +206,7 @@ Some Fields Is Invalid", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Sto
         {
             if (string.IsNullOrEmpty(PBPersonImage.ImageLocation) || PBPersonImage.Image == Resources.Male_512)
             {
-                PBPersonImage.Image = Resources.Female_512;
+                SetDefaultImage();
             }
         }
 
@@ -178,8 +229,8 @@ Some Fields Is Invalid", "Cannot Save", MessageBoxButtons.OK, MessageBoxIcon.Sto
         {
             if (PBPersonImage.Image != null && PBPersonImage.Image != Resources.Male_512 && PBPersonImage.Image != Resources.Female_512)
             {
+                PBPersonImage.ImageLocation = "";
                 PBPersonImage.Image = (RBMale.Checked) ? Resources.Male_512 : Resources.Female_512;
-                MessageBox.Show(PBPersonImage.ImageLocation);
                 LlblRemoveImage.Visible = false;
             }
         }
