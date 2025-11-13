@@ -166,6 +166,14 @@ namespace DVDL.Forms.PeopleManagement
 
         private void BtnSave_Click(object sender, System.EventArgs e)
         {
+            if (!this.ValidateChildren())
+            {
+                //Here we dont continue becuase the form is not valid
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
             if (PersonID == -1)
             {
                 if (IsAllFieldsFilled())
