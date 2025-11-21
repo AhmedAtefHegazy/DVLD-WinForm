@@ -86,12 +86,14 @@ namespace DVDL
 
             if (MessageBox.Show($"Sure to delete {DGVManagePeople.SelectedRows[0].Cells["FirstName"].Value.ToString()}", "Delete Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
+                People Person = People.Find(PersonID);
+                string OldImagePath = Person.ImagePath;
+
                 //Perform Delele and refresh
                 if (People.DeletePerson((int)DGVManagePeople.CurrentRow.Cells[0].Value))
                 {
+                    File.Delete(OldImagePath);
                     MessageBox.Show("/aPerson Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    People Person = People.Find(PersonID);
-                    File.Delete(Person.ImagePath);
                     RefreshTable();
                 }
 
