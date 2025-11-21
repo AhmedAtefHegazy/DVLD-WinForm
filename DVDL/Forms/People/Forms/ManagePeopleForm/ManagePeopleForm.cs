@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using DVDL.Forms.PeopleManagement;
@@ -89,6 +90,8 @@ namespace DVDL
                 if (People.DeletePerson((int)DGVManagePeople.CurrentRow.Cells[0].Value))
                 {
                     MessageBox.Show("/aPerson Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    People Person = People.Find(PersonID);
+                    File.Delete(Person.ImagePath);
                     RefreshTable();
                 }
 
