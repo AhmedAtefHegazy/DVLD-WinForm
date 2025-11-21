@@ -623,7 +623,8 @@ namespace DVDL.Forms.PeopleManagement
             //
             this.DTPDateOfBirth.MaxDate = DateTime.Now - new TimeSpan(157788, 0, 0);
         }
-        
+        //I used the InitializeComponent above and this is made the windows form designer not working
+        //so you have to edit it manually
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();

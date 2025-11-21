@@ -226,7 +226,7 @@ namespace DVDL.Forms.PeopleManagement
                 IsNationalNoValid = false;
                 e.Cancel = true;
             }
-            else if (People.IsNationalNoExist(RTBNationalNo.Text))
+            else if (People.IsNationalNoExist(RTBNationalNo.Text) && PersonID == -1)
             {
                 EP.SetError((Control)sender, "This National Nubmer Is Used");
                 IsNationalNoValid = false;

@@ -13,6 +13,8 @@ namespace DVDL.Forms.PeopleManagement
 
         public FrmAdd_EditPersonInfo(int PersonID)
         {
+            //I used the Edited InitializeComponent and this is made the windows form designer not working
+            //so you have to edit it manually
             InitializeComponent(PersonID);
             InitializeCountryComboBox();
             FillFieldsWithPersonInfo(PersonID);
@@ -47,6 +49,11 @@ namespace DVDL.Forms.PeopleManagement
             bool IsPersonUpdated = false;
 
             People Person = People.Find(PersonID);
+            if (Person == null)
+            {
+                return false;
+            }
+
             FillPesonWithFields(Person);
             IsPersonUpdated = Person.Save();
 
