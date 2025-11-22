@@ -40,6 +40,8 @@ The repository consists of:
 ---
 
 ## Architecture & Project Structure
+
+```txt
 DVLD-WinForm/
 │
 ├─ DVLD/                      ← WinForms UI
@@ -49,6 +51,8 @@ DVLD-WinForm/
 ├─ .gitignore
 ├─ LICENSE
 └─ README.md
+```
+
 
 ### Layer Responsibilities
 - UI (DVLD): Handles user interaction via WinForms
