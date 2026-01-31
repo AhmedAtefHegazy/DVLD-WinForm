@@ -12,8 +12,12 @@ namespace DVDL.Forms.PeopleManagement.UserControls
 
         private void BtnAddNewPerson_Click(object sender, System.EventArgs e)
         {
-            Form FrmAddNewPerson = new FrmAdd_EditPersonInfo(-1);
+            FrmAdd_EditPersonInfo FrmAddNewPerson = new FrmAdd_EditPersonInfo(-1);
             FrmAddNewPerson.ShowDialog();
+            if (FrmAddNewPerson.PersonID != -1)
+            {
+                ctrPersonCardInformation1.FillPersonInfo(FrmAddNewPerson.PersonID);
+            }
         }
 
         private void BtnSearchForPerson_Click(object sender, System.EventArgs e)

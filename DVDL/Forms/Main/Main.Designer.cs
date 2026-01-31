@@ -35,6 +35,7 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ctrPersonCardWithFilter1 = new DVDL.Forms.PeopleManagement.UserControls.ctrPersonCardWithFilter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +106,13 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // ctrPersonCardWithFilter1
+            // 
+            this.ctrPersonCardWithFilter1.Location = new System.Drawing.Point(201, 230);
+            this.ctrPersonCardWithFilter1.Name = "ctrPersonCardWithFilter1";
+            this.ctrPersonCardWithFilter1.Size = new System.Drawing.Size(1137, 476);
+            this.ctrPersonCardWithFilter1.TabIndex = 4;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,6 +120,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1465, 873);
+            this.Controls.Add(this.ctrPersonCardWithFilter1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
@@ -137,5 +146,6 @@
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountSettingsToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Forms.PeopleManagement.UserControls.ctrPersonCardWithFilter ctrPersonCardWithFilter1;
     }
 }

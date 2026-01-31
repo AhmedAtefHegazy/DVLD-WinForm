@@ -10,6 +10,7 @@ namespace DVDL
 {
     public partial class ctrPersonCardInformation : UserControl
     {
+        private int _PersonID;
         public ctrPersonCardInformation()
         {
             InitializeComponent();
@@ -18,6 +19,8 @@ namespace DVDL
         public void FillPersonInfo(int PersonID)
         {
             People Person = People.Find(PersonID);
+
+            _PersonID = PersonID;
 
             if (Person == null)
             {
@@ -121,6 +124,8 @@ namespace DVDL
             {
                 Form FrmEditPerson = new FrmAdd_EditPersonInfo(Convert.ToInt32(lblPersonId.Text));
                 FrmEditPerson.ShowDialog();
+
+                this.FillPersonInfo(Convert.ToInt32(lblPersonId.Text));
             }
             else return;
         }
