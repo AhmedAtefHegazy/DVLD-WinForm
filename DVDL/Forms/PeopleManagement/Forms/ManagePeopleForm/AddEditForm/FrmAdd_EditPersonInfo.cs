@@ -9,7 +9,7 @@ namespace DVDL.Forms.PeopleManagement
 {
     public partial class FrmAdd_EditPersonInfo : Form
     {
-        int PersonID = -1;
+        public int PersonID = -1;
 
         public FrmAdd_EditPersonInfo(int PersonID)
         {
