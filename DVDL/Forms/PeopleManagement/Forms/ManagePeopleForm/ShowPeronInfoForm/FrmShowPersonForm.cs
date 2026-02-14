@@ -15,6 +15,11 @@ namespace DVDL.Forms.PeopleManagement
             cardPersonInformation1.FillPersonInfo(PersonID);
         }
 
+        private void FillPersoninfo(string NationalNo)
+        {
+            cardPersonInformation1.FillPersonInfo(NationalNo);
+        }
+
         private void btnCloseShowPersonForm_Click(object sender, System.EventArgs e)
         {
             this.Close();
