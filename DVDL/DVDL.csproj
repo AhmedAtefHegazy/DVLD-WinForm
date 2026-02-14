@@ -83,11 +83,11 @@
     <Compile Include="Forms\Main\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\People\Forms\ManagePeopleForm.cs">
+    <Compile Include="Forms\People\Forms\ListPeopleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\People\Forms\ManagePeopleForm.Designer.cs">
-      <DependentUpon>ManagePeopleForm.cs</DependentUpon>
+    <Compile Include="Forms\People\Forms\ListPeopleForm.Designer.cs">
+      <DependentUpon>ListPeopleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\People\Controls\ctrPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
@@ -112,8 +112,8 @@
     <EmbeddedResource Include="Forms\Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\People\Forms\ManagePeopleForm.resx">
-      <DependentUpon>ManagePeopleForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\People\Forms\ListPeopleForm.resx">
+      <DependentUpon>ListPeopleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\People\Controls\ctrPersonCardWithFilter.resx">
       <DependentUpon>ctrPersonCardWithFilter.cs</DependentUpon>
