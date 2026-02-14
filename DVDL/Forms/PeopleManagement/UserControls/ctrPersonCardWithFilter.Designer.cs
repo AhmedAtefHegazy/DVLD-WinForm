@@ -87,7 +87,7 @@
             this.TbFindBy.Size = new System.Drawing.Size(309, 33);
             this.TbFindBy.TabIndex = 2;
             this.TbFindBy.Text = "";
-            this.TbFindBy.TextChanged += new System.EventHandler(this.TbFindBy_TextChanged);
+            this.TbFindBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbFindBy_KeyPress);
             this.TbFindBy.Validating += new System.ComponentModel.CancelEventHandler(this.TbFindBy_Validating);
             // 
             // CbFindBy

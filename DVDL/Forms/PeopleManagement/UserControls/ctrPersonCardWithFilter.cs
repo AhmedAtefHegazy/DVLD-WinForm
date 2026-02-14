@@ -73,14 +73,6 @@ namespace DVDL.Forms.PeopleManagement.UserControls
             }
         }
 
-        private void TbFindBy_TextChanged(object sender, System.EventArgs e)
-        {
-            if (!int.TryParse(TbFindBy.Text, out int PersonID) && CbFindBy.SelectedIndex == 1)
-            {
-                TbFindBy.Clear();
-            }
-        }
-
         private void CbFindBy_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             TbFindBy.Clear();
@@ -96,6 +88,21 @@ namespace DVDL.Forms.PeopleManagement.UserControls
             else
             {
                 errorProvider1.SetError(TbFindBy, null);
+            }
+
+        }
+
+        private void TbFindBy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Check if the user pressed enter then preform search 
+            if (e.KeyChar == (char)13)
+            {
+                BtnSearchForPerson.PerformClick();
+            }
+
+            if (CbFindBy.Text == "Person ID")
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
 
         }

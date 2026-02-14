@@ -15,10 +15,5 @@ namespace DVDL
             PeopleManage.ShowDialog();
         }
 
-        private void ctrPersonCardWithFilter1_OnPersonSelected(int PersonID)
-        {
-            MessageBox.Show("PersonID =" + PersonID);
-        }
-
     }
 }
