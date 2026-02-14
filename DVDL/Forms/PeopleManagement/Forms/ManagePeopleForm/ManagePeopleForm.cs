@@ -92,8 +92,9 @@ namespace DVDL
                 //Perform Delele and refresh
                 if (People.DeletePerson((int)DGVManagePeople.CurrentRow.Cells[0].Value))
                 {
-                    File.Delete(OldImagePath);
-                    MessageBox.Show("/aPerson Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (OldImagePath != string.Empty)
+                        File.Delete(OldImagePath);
+                    MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshTable();
                 }
 

@@ -14,5 +14,11 @@ namespace DVDL
             Form PeopleManage = new FrmManagePeople();
             PeopleManage.ShowDialog();
         }
+
+        private void ctrPersonCardWithFilter1_OnPersonSelected(int PersonID)
+        {
+            MessageBox.Show("PersonID =" + PersonID);
+        }
+
     }
 }

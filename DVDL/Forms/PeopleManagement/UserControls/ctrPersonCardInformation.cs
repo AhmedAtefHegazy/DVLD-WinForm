@@ -10,7 +10,7 @@ namespace DVDL
 {
     public partial class ctrPersonCardInformation : UserControl
     {
-        private int _PersonID;
+        public int PersonID = -1;
         public ctrPersonCardInformation()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace DVDL
         {
             People Person = People.Find(PersonID);
 
-            _PersonID = PersonID;
+            this.PersonID = PersonID;
 
             if (Person == null)
             {
@@ -79,6 +79,7 @@ namespace DVDL
             }
 
             lblPersonId.Text = Person.PersonID.ToString();
+            this.PersonID = Person.PersonID;
 
             // Safely concatenate names (ignore nulls and extra spaces)
             lblPersonName.Text = string.Join(" ", new[]

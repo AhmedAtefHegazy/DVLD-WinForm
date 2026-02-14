@@ -28,36 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GBFindBy = new System.Windows.Forms.GroupBox();
+            this.components = new System.ComponentModel.Container();
+            this.GBFilters = new System.Windows.Forms.GroupBox();
             this.BtnAddNewPerson = new System.Windows.Forms.Button();
             this.BtnSearchForPerson = new System.Windows.Forms.Button();
             this.TbFindBy = new System.Windows.Forms.RichTextBox();
             this.CbFindBy = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ctrPersonCardInformation1 = new DVDL.ctrPersonCardInformation();
-            this.GBFindBy.SuspendLayout();
+            this.GBFilters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // GBFindBy
+            // GBFilters
             // 
-            this.GBFindBy.Controls.Add(this.BtnAddNewPerson);
-            this.GBFindBy.Controls.Add(this.BtnSearchForPerson);
-            this.GBFindBy.Controls.Add(this.TbFindBy);
-            this.GBFindBy.Controls.Add(this.CbFindBy);
-            this.GBFindBy.Controls.Add(this.label1);
-            this.GBFindBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GBFindBy.Location = new System.Drawing.Point(3, 3);
-            this.GBFindBy.Name = "GBFindBy";
-            this.GBFindBy.Size = new System.Drawing.Size(1131, 89);
-            this.GBFindBy.TabIndex = 1;
-            this.GBFindBy.TabStop = false;
-            this.GBFindBy.Text = "Filter";
+            this.GBFilters.Controls.Add(this.BtnAddNewPerson);
+            this.GBFilters.Controls.Add(this.BtnSearchForPerson);
+            this.GBFilters.Controls.Add(this.TbFindBy);
+            this.GBFilters.Controls.Add(this.CbFindBy);
+            this.GBFilters.Controls.Add(this.label1);
+            this.GBFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBFilters.Location = new System.Drawing.Point(3, 3);
+            this.GBFilters.Name = "GBFilters";
+            this.GBFilters.Size = new System.Drawing.Size(1131, 89);
+            this.GBFilters.TabIndex = 1;
+            this.GBFilters.TabStop = false;
+            this.GBFilters.Text = "Filter";
             // 
             // BtnAddNewPerson
             // 
             this.BtnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAddNewPerson.Image = global::DVDL.Properties.Resources.AddPerson_32;
-            this.BtnAddNewPerson.Location = new System.Drawing.Point(814, 30);
+            this.BtnAddNewPerson.Location = new System.Drawing.Point(836, 29);
             this.BtnAddNewPerson.Name = "BtnAddNewPerson";
             this.BtnAddNewPerson.Size = new System.Drawing.Size(60, 41);
             this.BtnAddNewPerson.TabIndex = 4;
@@ -68,7 +71,7 @@
             // 
             this.BtnSearchForPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSearchForPerson.Image = global::DVDL.Properties.Resources.SearchPerson;
-            this.BtnSearchForPerson.Location = new System.Drawing.Point(748, 30);
+            this.BtnSearchForPerson.Location = new System.Drawing.Point(770, 29);
             this.BtnSearchForPerson.Name = "BtnSearchForPerson";
             this.BtnSearchForPerson.Size = new System.Drawing.Size(60, 41);
             this.BtnSearchForPerson.TabIndex = 3;
@@ -85,6 +88,7 @@
             this.TbFindBy.TabIndex = 2;
             this.TbFindBy.Text = "";
             this.TbFindBy.TextChanged += new System.EventHandler(this.TbFindBy_TextChanged);
+            this.TbFindBy.Validating += new System.ComponentModel.CancelEventHandler(this.TbFindBy_Validating);
             // 
             // CbFindBy
             // 
@@ -110,6 +114,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Find By:";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ctrPersonCardInformation1
             // 
             this.ctrPersonCardInformation1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -122,12 +130,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.GBFindBy);
+            this.Controls.Add(this.GBFilters);
             this.Controls.Add(this.ctrPersonCardInformation1);
             this.Name = "ctrPersonCardWithFilter";
             this.Size = new System.Drawing.Size(1137, 476);
-            this.GBFindBy.ResumeLayout(false);
-            this.GBFindBy.PerformLayout();
+            this.GBFilters.ResumeLayout(false);
+            this.GBFilters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -135,11 +144,12 @@
         #endregion
 
         private ctrPersonCardInformation ctrPersonCardInformation1;
-        private System.Windows.Forms.GroupBox GBFindBy;
+        private System.Windows.Forms.GroupBox GBFilters;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CbFindBy;
         private System.Windows.Forms.RichTextBox TbFindBy;
         private System.Windows.Forms.Button BtnSearchForPerson;
         private System.Windows.Forms.Button BtnAddNewPerson;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
