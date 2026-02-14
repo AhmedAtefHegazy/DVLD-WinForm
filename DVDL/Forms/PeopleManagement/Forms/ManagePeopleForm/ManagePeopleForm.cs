@@ -191,34 +191,34 @@ namespace DVDL
                         break;
 
                     case "firstname":
-                        filterExpression = $"FirstName LIKE '%{filterText}%'";
+                        filterExpression = $"FirstName LIKE '{filterText}%'";
                         filteredRows = allPeople.Select(filterExpression);
                         break;
 
                     case "secondname":
-                        filterExpression = $"SecondName LIKE '%{filterText}%'";
+                        filterExpression = $"SecondName LIKE '{filterText}%'";
                         filteredRows = allPeople.Select(filterExpression);
                         break;
 
                     case "thirdname":
-                        filterExpression = $"ThirdName LIKE '%{filterText}%'";
+                        filterExpression = $"ThirdName LIKE '{filterText}%'";
                         filteredRows = allPeople.Select(filterExpression);
                         break;
 
                     case "lastname":
-                        filterExpression = $"LastName LIKE '%{filterText}%'";
+                        filterExpression = $"LastName LIKE '{filterText}%'";
                         filteredRows = allPeople.Select(filterExpression);
                         break;
 
                     case "address":
-                        filterExpression = $"Address LIKE '%{filterText}%'";
+                        filterExpression = $"Address LIKE '{filterText}%'";
                         filteredRows = allPeople.Select(filterExpression);
                         break;
 
                     case "nationalno":
                         if (filterText.All(char.IsDigit))
                         {
-                            filterExpression = $"NationalNo LIKE '%{filterText}%'";
+                            filterExpression = $"NationalNo LIKE '{filterText}%'";
                             filteredRows = allPeople.Select(filterExpression);
                         }
                         break;
@@ -226,14 +226,14 @@ namespace DVDL
                     case "phone":
                         if (filterText.All(char.IsDigit))
                         {
-                            filterExpression = $"Phone LIKE '%{filterText}%'";
+                            filterExpression = $"Phone LIKE '{filterText}%'";
                             filteredRows = allPeople.Select(filterExpression);
                         }
                         break;
                     case "email":
                         if (allPeople.Columns.Contains("Email"))
                         {
-                            filterExpression = $"Email LIKE '%{(filterText)}%'";
+                            filterExpression = $"Email LIKE '{(filterText)}%'";
                             filteredRows = allPeople.Select(filterExpression);
                         }
                         break;
@@ -257,7 +257,7 @@ namespace DVDL
                             }
                             else
                             {
-                                filterExpression = $"Convert(Gender, 'System.String') LIKE '%{(filterText)}%'";
+                                filterExpression = $"Convert(Gender, 'System.String') LIKE '{(filterText)}%'";
                             }
                             filteredRows = allPeople.Select(filterExpression);
                         }
@@ -267,7 +267,7 @@ namespace DVDL
                         // grid might include either the ID column or a display column (e.g. NationalityCountry)
                         if (allPeople.Columns.Contains("NationalityCountry"))
                         {
-                            filterExpression = $"NationalityCountry LIKE '%{(filterText)}%'";
+                            filterExpression = $"NationalityCountry LIKE '{(filterText)}%'";
                             filteredRows = allPeople.Select(filterExpression);
                         }
                         else if (allPeople.Columns.Contains("NationalityCountryID"))
