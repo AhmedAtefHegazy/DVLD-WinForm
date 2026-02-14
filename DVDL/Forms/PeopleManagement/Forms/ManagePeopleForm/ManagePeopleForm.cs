@@ -113,38 +113,17 @@ namespace DVDL
                     RTBFilterBy.Clear();
                     break;
                 case "personid":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "firstname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "secondname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "thirdname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "lastname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "address":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "dateofbirth":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "nationalno":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "phone":
+                case "email":
+                case "gender":
+                case "nationalitycountryid":
                     RTBFilterBy.Visible = true;
                     RTBFilterBy.Clear();
                     break;
@@ -157,7 +136,15 @@ namespace DVDL
             {
                 case "personid":
                 case "phone":
+                case "nationalitycountryid":
                     if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                    break;
+                case "gender":
+                    if (RTBFilterBy.Text.Length >= 1)
                     {
                         e.Handled = true;
                         return;
@@ -241,6 +228,55 @@ namespace DVDL
                         {
                             filterExpression = $"Phone LIKE '%{filterText}%'";
                             filteredRows = allPeople.Select(filterExpression);
+                        }
+                        break;
+                    case "email":
+                        if (allPeople.Columns.Contains("Email"))
+                        {
+                            filterExpression = $"Email LIKE '%{(filterText)}%'";
+                            filteredRows = allPeople.Select(filterExpression);
+                        }
+                        break;
+
+                    case "gender":
+                        if (allPeople.Columns.Contains("Gender"))
+                        {
+                            // support single-char codes (M/F/U) or full words ('male','female')
+                            var t = filterText.Trim().ToLowerInvariant();
+                            if (t.Length == 1)
+                            {
+                                filterExpression = $"Convert(Gender, 'System.String') = '{(t.ToUpperInvariant())}'";
+                            }
+                            else if (t == "male" || t.StartsWith("m"))
+                            {
+                                filterExpression = $"Convert(Gender, 'System.String') = 'M'";
+                            }
+                            else if (t == "female" || t.StartsWith("f"))
+                            {
+                                filterExpression = $"Convert(Gender, 'System.String') = 'F'";
+                            }
+                            else
+                            {
+                                filterExpression = $"Convert(Gender, 'System.String') LIKE '%{(filterText)}%'";
+                            }
+                            filteredRows = allPeople.Select(filterExpression);
+                        }
+                        break;
+
+                    case "nationalitycountryid":
+                        // grid might include either the ID column or a display column (e.g. NationalityCountry)
+                        if (allPeople.Columns.Contains("NationalityCountry"))
+                        {
+                            filterExpression = $"NationalityCountry LIKE '%{(filterText)}%'";
+                            filteredRows = allPeople.Select(filterExpression);
+                        }
+                        else if (allPeople.Columns.Contains("NationalityCountryID"))
+                        {
+                            if (filterText.All(char.IsDigit))
+                            {
+                                filterExpression = $"Convert(NationalityCountryID, 'System.String') = '{(filterText)}'";
+                                filteredRows = allPeople.Select(filterExpression);
+                            }
                         }
                         break;
                 }
