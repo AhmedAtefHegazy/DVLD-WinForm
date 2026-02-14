@@ -9,6 +9,11 @@ namespace DVDL
 {
     public partial class FrmManagePeople : Form
     {
+        private static DataTable _dtAllPeople = PeopleBusinessLayer.People.GetAllPeople();
+
+        //if you want specifc Columns from the Table
+        //private static DataTable _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID");
+
         public FrmManagePeople()
         {
             InitializeComponent();
@@ -18,8 +23,11 @@ namespace DVDL
 
         private void RefreshTable()
         {
-            DGVManagePeople.DataSource = PeopleBusinessLayer.People.GetAllPeople();
+            DGVManagePeople.DataSource = _dtAllPeople;
+
+
             lblRecordCount.Text = "# Record: " + DGVManagePeople.RowCount.ToString();
+
         }
 
         private void InitializeCBFilterBy()

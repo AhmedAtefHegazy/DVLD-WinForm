@@ -50,31 +50,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\PeopleManagement\Forms\FindPersonForm\FindPersonForm.cs">
+    <Compile Include="Forms\People\Forms\AddEditForm\FrmAdd_EditPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\FindPersonForm\FindPersonForm.Designer.cs">
-      <DependentUpon>FindPersonForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\ManagePeopleForm\AddEditForm\FrmAdd_EditPersonInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\ManagePeopleForm\AddEditForm\FrmAdd_EditPersonInfo.Designer.cs">
+    <Compile Include="Forms\People\Forms\AddEditForm\FrmAdd_EditPersonInfo.Designer.cs">
       <DependentUpon>FrmAdd_EditPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\ManagePeopleForm\AddEditForm\Valiation\Validator.cs">
+    <Compile Include="Forms\People\Forms\AddEditForm\Valiation\Validator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\ManagePeopleForm\ShowPeronInfoForm\FrmShowPersonForm.cs">
+    <Compile Include="Forms\People\Forms\FindPersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\ManagePeopleForm\ShowPeronInfoForm\FrmShowPersonForm.Designer.cs">
+    <Compile Include="Forms\People\Forms\FindPersonForm.Designer.cs">
+      <DependentUpon>FindPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\People\Forms\FrmShowPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\People\Forms\FrmShowPersonForm.Designer.cs">
       <DependentUpon>FrmShowPersonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\UserControls\ctrPersonCardInformation.cs">
+    <Compile Include="Forms\People\Controls\ctrPersonCardInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\UserControls\ctrPersonCardInformation.Designer.cs">
+    <Compile Include="Forms\People\Controls\ctrPersonCardInformation.Designer.cs">
       <DependentUpon>ctrPersonCardInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main\Main.cs">
@@ -83,39 +83,39 @@
     <Compile Include="Forms\Main\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\ManagePeopleForm\ManagePeopleForm.cs">
+    <Compile Include="Forms\People\Forms\ManagePeopleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\Forms\ManagePeopleForm\ManagePeopleForm.Designer.cs">
+    <Compile Include="Forms\People\Forms\ManagePeopleForm.Designer.cs">
       <DependentUpon>ManagePeopleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\UserControls\ctrPersonCardWithFilter.cs">
+    <Compile Include="Forms\People\Controls\ctrPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\PeopleManagement\UserControls\ctrPersonCardWithFilter.Designer.cs">
+    <Compile Include="Forms\People\Controls\ctrPersonCardWithFilter.Designer.cs">
       <DependentUpon>ctrPersonCardWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\PeopleManagement\Forms\FindPersonForm\FindPersonForm.resx">
-      <DependentUpon>FindPersonForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PeopleManagement\Forms\ManagePeopleForm\AddEditForm\FrmAdd_EditPersonInfo.resx">
+    <EmbeddedResource Include="Forms\People\Forms\AddEditForm\FrmAdd_EditPersonInfo.resx">
       <DependentUpon>FrmAdd_EditPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PeopleManagement\Forms\ManagePeopleForm\ShowPeronInfoForm\FrmShowPersonForm.resx">
+    <EmbeddedResource Include="Forms\People\Forms\FindPersonForm.resx">
+      <DependentUpon>FindPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\People\Forms\FrmShowPersonForm.resx">
       <DependentUpon>FrmShowPersonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PeopleManagement\UserControls\ctrPersonCardInformation.resx">
+    <EmbeddedResource Include="Forms\People\Controls\ctrPersonCardInformation.resx">
       <DependentUpon>ctrPersonCardInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PeopleManagement\Forms\ManagePeopleForm\ManagePeopleForm.resx">
+    <EmbeddedResource Include="Forms\People\Forms\ManagePeopleForm.resx">
       <DependentUpon>ManagePeopleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PeopleManagement\UserControls\ctrPersonCardWithFilter.resx">
+    <EmbeddedResource Include="Forms\People\Controls\ctrPersonCardWithFilter.resx">
       <DependentUpon>ctrPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
