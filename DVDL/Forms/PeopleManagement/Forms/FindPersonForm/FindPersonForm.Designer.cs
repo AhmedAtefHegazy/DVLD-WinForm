@@ -50,6 +50,7 @@
             this.ctrPersonCardWithFilter1.Name = "ctrPersonCardWithFilter1";
             this.ctrPersonCardWithFilter1.Size = new System.Drawing.Size(1137, 476);
             this.ctrPersonCardWithFilter1.TabIndex = 1;
+            this.ctrPersonCardWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrPersonCardWithFilter1_OnPersonSelected);
             // 
             // BtnClose
             // 
