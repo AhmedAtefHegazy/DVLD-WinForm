@@ -26,7 +26,7 @@ namespace DVDL
 
         private void RefreshTable()
         {
-            _dtPeople = PeopleBusinessLayer.People.GetAllPeople().DefaultView.
+            DGVManagePeople.DataSource = PeopleBusinessLayer.People.GetAllPeople().DefaultView.
         ToTable(false, "PersonID", "NationalNo",
                       "FirstName", "SecondName", "ThirdName", "LastName",
                       "GenderCaption", "DateOfBirth", "CountryName",
