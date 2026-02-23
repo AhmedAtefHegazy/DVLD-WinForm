@@ -261,7 +261,23 @@ namespace DVLD_DataAccessLayer
         {
             DataTable DT = new DataTable();
 
-            string Query = "SELECT * FROM People";
+            string Query = @"SELECT 
+              People.PersonID, People.NationalNo,
+              People.FirstName, People.SecondName, People.ThirdName, People.LastName,
+			  People.DateOfBirth, People.Gender,  
+
+              CASE
+                  WHEN People.Gender = 'M' THEN 'Male'
+                  ELSE 'Female'
+                  END as GenderCaption ,
+
+			  People.Address, People.Phone, People.Email, 
+              People.NationalityCountryID, Countries.CountryName, People.ImagePath
+
+              FROM            
+              People INNER JOIN Countries 
+              ON People.NationalityCountryID = Countries.CountryID
+              ORDER BY People.FirstName";
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
             SqlCommand sqlCommand = new SqlCommand(Query, Connection);
 

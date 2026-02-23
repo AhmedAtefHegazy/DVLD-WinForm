@@ -1,6 +1,6 @@
 ﻿namespace DVDL
 {
-    partial class CardPersonInformation
+    partial class ctrPersonCardInformation
     {
         /// <summary> 
         /// Required designer variable.
