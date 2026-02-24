@@ -43,6 +43,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.lblFilterPeopleBy = new System.Windows.Forms.Label();
             this.CBFilterBy = new System.Windows.Forms.ComboBox();
@@ -50,24 +51,10 @@
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RTBFilterBy = new System.Windows.Forms.RichTextBox();
-            this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThirdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImagePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NationalityCountryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).BeginInit();
             this.CMSManagePeople.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -85,7 +72,6 @@
             // 
             this.DGVManagePeople.AllowUserToAddRows = false;
             this.DGVManagePeople.AllowUserToDeleteRows = false;
-            this.DGVManagePeople.AutoGenerateColumns = false;
             this.DGVManagePeople.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -96,22 +82,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGVManagePeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVManagePeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVManagePeople.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PersonID,
-            this.FirstName,
-            this.SecondName,
-            this.ThirdName,
-            this.LastName,
-            this.Address,
-            this.DateOfBirth,
-            this.NationalNo,
-            this.Phone,
-            this.Email,
-            this.Gender,
-            this.ImagePath,
-            this.NationalityCountryID});
             this.DGVManagePeople.ContextMenuStrip = this.CMSManagePeople;
-            this.DGVManagePeople.DataSource = this.peopleBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -210,6 +181,10 @@
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             this.phoneCallToolStripMenuItem.Click += new System.EventHandler(this.phoneCallToolStripMenuItem_Click);
             // 
+            // peopleBindingSource
+            // 
+            this.peopleBindingSource.DataSource = typeof(PeopleBusinessLayer.People);
+            // 
             // lblRecordCount
             // 
             this.lblRecordCount.AutoSize = true;
@@ -286,111 +261,6 @@
             this.RTBFilterBy.TextChanged += new System.EventHandler(this.RTBFilterBy_TextChanged);
             this.RTBFilterBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RTBFilterBy_KeyPress);
             // 
-            // PersonID
-            // 
-            this.PersonID.DataPropertyName = "PersonID";
-            this.PersonID.Frozen = true;
-            this.PersonID.HeaderText = "PersonID";
-            this.PersonID.Name = "PersonID";
-            this.PersonID.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.Frozen = true;
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // SecondName
-            // 
-            this.SecondName.DataPropertyName = "SecondName";
-            this.SecondName.Frozen = true;
-            this.SecondName.HeaderText = "SecondName";
-            this.SecondName.Name = "SecondName";
-            this.SecondName.ReadOnly = true;
-            // 
-            // ThirdName
-            // 
-            this.ThirdName.DataPropertyName = "ThirdName";
-            this.ThirdName.Frozen = true;
-            this.ThirdName.HeaderText = "ThirdName";
-            this.ThirdName.Name = "ThirdName";
-            this.ThirdName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.Frozen = true;
-            this.LastName.HeaderText = "LastName";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.Frozen = true;
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.DataPropertyName = "DateOfBirth";
-            this.DateOfBirth.Frozen = true;
-            this.DateOfBirth.HeaderText = "DateOfBirth";
-            this.DateOfBirth.Name = "DateOfBirth";
-            this.DateOfBirth.ReadOnly = true;
-            // 
-            // NationalNo
-            // 
-            this.NationalNo.DataPropertyName = "NationalNo";
-            this.NationalNo.HeaderText = "NationalNo";
-            this.NationalNo.Name = "NationalNo";
-            this.NationalNo.ReadOnly = true;
-            // 
-            // Phone
-            // 
-            this.Phone.DataPropertyName = "Phone";
-            this.Phone.HeaderText = "Phone";
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.DataPropertyName = "Gender";
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            // 
-            // ImagePath
-            // 
-            this.ImagePath.DataPropertyName = "ImagePath";
-            this.ImagePath.HeaderText = "ImagePath";
-            this.ImagePath.Name = "ImagePath";
-            this.ImagePath.ReadOnly = true;
-            this.ImagePath.Visible = false;
-            // 
-            // NationalityCountryID
-            // 
-            this.NationalityCountryID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.NationalityCountryID.DataPropertyName = "NationalityCountryID";
-            this.NationalityCountryID.HeaderText = "NationalityCountryID";
-            this.NationalityCountryID.Name = "NationalityCountryID";
-            this.NationalityCountryID.ReadOnly = true;
-            this.NationalityCountryID.Width = 179;
-            // 
-            // peopleBindingSource
-            // 
-            this.peopleBindingSource.DataSource = typeof(PeopleBusinessLayer.People);
-            // 
             // FrmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,8 +282,8 @@
             this.Text = "Manage People";
             ((System.ComponentModel.ISupportInitialize)(this.DGVManagePeople)).EndInit();
             this.CMSManagePeople.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,18 +310,5 @@
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
         private System.Windows.Forms.RichTextBox RTBFilterBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PersonID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SecondName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThirdName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NationalNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImagePath;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NationalityCountryID;
     }
 }

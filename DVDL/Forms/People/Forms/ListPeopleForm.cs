@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using DVDL.Forms.PeopleManagement;
 using PeopleBusinessLayer;
@@ -9,17 +8,75 @@ namespace DVDL
 {
     public partial class FrmManagePeople : Form
     {
+
+        private static DataTable _dtAllPeople = PeopleBusinessLayer.People.GetAllPeople();
+
+        private DataTable _dtPeople = _dtAllPeople.DefaultView.
+                ToTable(false, "PersonID", "NationalNo",
+                              "FirstName", "SecondName", "ThirdName", "LastName",
+                              "GenderCaption", "DateOfBirth", "CountryName",
+                              "Phone", "Email");
+
         public FrmManagePeople()
         {
             InitializeComponent();
-            InitializeCBFilterBy();
             RefreshTable();
+            InitializeCBFilterBy();
         }
 
         private void RefreshTable()
         {
-            DGVManagePeople.DataSource = PeopleBusinessLayer.People.GetAllPeople();
+            DGVManagePeople.DataSource = PeopleBusinessLayer.People.GetAllPeople().DefaultView.
+        ToTable(false, "PersonID", "NationalNo",
+                      "FirstName", "SecondName", "ThirdName", "LastName",
+                      "GenderCaption", "DateOfBirth", "CountryName",
+                      "Phone", "Email");
+
+            if (DGVManagePeople.Rows.Count > 0)
+            {
+
+                DGVManagePeople.Columns[0].HeaderText = "Person ID";
+                DGVManagePeople.Columns[0].Width = 80;
+
+                DGVManagePeople.Columns[1].HeaderText = "National No.";
+                DGVManagePeople.Columns[1].Width = 120;
+
+
+                DGVManagePeople.Columns[2].HeaderText = "First Name";
+                DGVManagePeople.Columns[2].Width = 120;
+
+                DGVManagePeople.Columns[3].HeaderText = "Second Name";
+                DGVManagePeople.Columns[3].Width = 140;
+
+
+                DGVManagePeople.Columns[4].HeaderText = "Third Name";
+                DGVManagePeople.Columns[4].Width = 120;
+
+                DGVManagePeople.Columns[5].HeaderText = "Last Name";
+                DGVManagePeople.Columns[5].Width = 120;
+
+                DGVManagePeople.Columns[6].HeaderText = "Gender";
+                DGVManagePeople.Columns[6].Width = 80;
+
+                DGVManagePeople.Columns[7].HeaderText = "Date Of Birth";
+                DGVManagePeople.Columns[7].Width = 140;
+
+                DGVManagePeople.Columns[8].HeaderText = "Nationality";
+                DGVManagePeople.Columns[8].Width = 80;
+
+
+                DGVManagePeople.Columns[9].HeaderText = "Phone";
+                DGVManagePeople.Columns[9].Width = 120;
+
+
+                DGVManagePeople.Columns[10].HeaderText = "Email";
+                DGVManagePeople.Columns[10].Width = 160;
+            }
+
+            DGVManagePeople.DataSource = _dtPeople;
+
             lblRecordCount.Text = "# Record: " + DGVManagePeople.RowCount.ToString();
+
         }
 
         private void InitializeCBFilterBy()
@@ -92,8 +149,9 @@ namespace DVDL
                 //Perform Delele and refresh
                 if (People.DeletePerson((int)DGVManagePeople.CurrentRow.Cells[0].Value))
                 {
-                    File.Delete(OldImagePath);
-                    MessageBox.Show("/aPerson Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (OldImagePath != string.Empty)
+                        File.Delete(OldImagePath);
+                    MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshTable();
                 }
 
@@ -105,45 +163,30 @@ namespace DVDL
 
         private void CBFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (CBFilterBy.SelectedItem.ToString().ToLower())
+            if (CBFilterBy.SelectedItem == null)
+                return;
+
+            string selected = CBFilterBy.SelectedItem.ToString().ToLower();
+
+            switch (selected)
             {
                 case "none":
                     RTBFilterBy.Visible = false;
                     RTBFilterBy.Clear();
                     break;
+
                 case "personid":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
-                case "firstname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
-                case "secondname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
-                case "thirdname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
-                case "lastname":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
-                case "address":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
-                case "dateofbirth":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
                 case "nationalno":
-                    RTBFilterBy.Visible = true;
-                    RTBFilterBy.Clear();
-                    break;
+                case "firstname":
+                case "secondname":
+                case "thirdname":
+                case "lastname":
+                case "dateofbirth":
                 case "phone":
+                case "email":
+                case "gender":
+                case "gendercaption":
+                case "countryname":
                     RTBFilterBy.Visible = true;
                     RTBFilterBy.Clear();
                     break;
@@ -162,6 +205,13 @@ namespace DVDL
                         return;
                     }
                     break;
+                case "gender":
+                    if (RTBFilterBy.Text.Length >= 1)
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                    break;
             }
         }
 
@@ -172,95 +222,30 @@ namespace DVDL
 
         private void ApplyFilter()
         {
-            if (CBFilterBy.SelectedItem == null || CBFilterBy.SelectedItem.ToString() == "None")
+            string FilterColumn = CBFilterBy.Text;
+            string FilterValue = RTBFilterBy.Text.Trim();
+
+            // Reset filters if "None" is selected or text is empty
+            if (FilterColumn == "None" || string.IsNullOrEmpty(FilterValue))
             {
-                RefreshTable();
+                _dtPeople.DefaultView.RowFilter = "";
+                lblRecordCount.Text = "# Record: " + DGVManagePeople.RowCount.ToString();
                 return;
             }
 
-            string filterText = RTBFilterBy.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(filterText))
+            // Handle "PersonID" separately because it is a Number, not a String
+            if (FilterColumn == "PersonID")
             {
-                RefreshTable();
-                return;
+                // Use direct equality for numbers (no LIKE)
+                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, FilterValue);
+            }
+            else
+            {
+                // Use LIKE for strings
+                _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, FilterValue);
             }
 
-            try
-            {
-                DataTable allPeople = People.GetAllPeople();
-                DataRow[] filteredRows = null;
-                string filterExpression = "";
-
-                switch (CBFilterBy.SelectedItem.ToString().ToLower())
-                {
-                    case "personid":
-                        if (filterText.All(char.IsDigit))
-                        {
-                            filterExpression = $"Convert(PersonID, 'System.String') = '{filterText}'";
-                            filteredRows = allPeople.Select(filterExpression);
-                        }
-                        break;
-
-                    case "firstname":
-                        filterExpression = $"FirstName LIKE '%{filterText}%'";
-                        filteredRows = allPeople.Select(filterExpression);
-                        break;
-
-                    case "secondname":
-                        filterExpression = $"SecondName LIKE '%{filterText}%'";
-                        filteredRows = allPeople.Select(filterExpression);
-                        break;
-
-                    case "thirdname":
-                        filterExpression = $"ThirdName LIKE '%{filterText}%'";
-                        filteredRows = allPeople.Select(filterExpression);
-                        break;
-
-                    case "lastname":
-                        filterExpression = $"LastName LIKE '%{filterText}%'";
-                        filteredRows = allPeople.Select(filterExpression);
-                        break;
-
-                    case "address":
-                        filterExpression = $"Address LIKE '%{filterText}%'";
-                        filteredRows = allPeople.Select(filterExpression);
-                        break;
-
-                    case "nationalno":
-                        if (filterText.All(char.IsDigit))
-                        {
-                            filterExpression = $"NationalNo LIKE '%{filterText}%'";
-                            filteredRows = allPeople.Select(filterExpression);
-                        }
-                        break;
-
-                    case "phone":
-                        if (filterText.All(char.IsDigit))
-                        {
-                            filterExpression = $"Phone LIKE '%{filterText}%'";
-                            filteredRows = allPeople.Select(filterExpression);
-                        }
-                        break;
-                }
-
-                // Update DataGridView
-                if (filteredRows != null && filteredRows.Length > 0)
-                {
-                    DGVManagePeople.DataSource = filteredRows.CopyToDataTable();
-                }
-                else
-                {
-                    DGVManagePeople.DataSource = null;
-                }
-
-                lblRecordCount.Text = "# Record: " + (filteredRows?.Length ?? 0).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                RefreshTable();
-            }
+            lblRecordCount.Text = "# Record: " + DGVManagePeople.RowCount.ToString();
         }
 
         private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)

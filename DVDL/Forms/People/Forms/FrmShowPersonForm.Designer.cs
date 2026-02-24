@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblPersonDetails = new System.Windows.Forms.Label();
-            this.cardPersonInformation1 = new DVDL.CardPersonInformation();
+            this.cardPersonInformation1 = new DVDL.ctrPersonCardInformation();
             this.btnCloseShowPersonForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -86,7 +86,7 @@
 
         #endregion
 
-        private CardPersonInformation cardPersonInformation1;
+        private ctrPersonCardInformation cardPersonInformation1;
         private System.Windows.Forms.Label lblPersonDetails;
         private System.Windows.Forms.Button btnCloseShowPersonForm;
     }

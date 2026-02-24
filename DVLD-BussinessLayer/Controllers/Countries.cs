@@ -5,8 +5,8 @@ namespace CountriesBusinessLayer
 {
     public class Countries
     {
-        short NationalityCountryID { get; set; }
-        string CountryName { get; set; }
+        public short NationalityCountryID { get; set; }
+        public string CountryName { get; set; }
 
         public Countries()
         {

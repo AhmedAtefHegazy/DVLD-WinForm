@@ -87,6 +87,41 @@ namespace PeopleBusinessLayer
             }
         }
 
+        public static People Find(string NationalNo)
+        {
+            int PersonID = -1;
+            string FullName = "";
+            string Address = "";
+            DateTime DateOfBirth = DateTime.Now;
+            string Phone = "";
+            string Email = "";
+            char Gender = 'U';
+            string ImagePath = "";
+            short NationalityCountryID = -1;
+
+            if (PeopleData.GetPersonByNationalNo(ref PersonID, ref FullName, ref Address,
+                ref DateOfBirth, NationalNo, ref Phone, ref Email, ref Gender,
+                ref ImagePath, ref NationalityCountryID))
+            {
+                string firstName = "", secondName = "", thirdName = "", lastName = "";
+
+                if (!string.IsNullOrWhiteSpace(FullName))
+                {
+                    var parts = FullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length > 0) firstName = parts[0];
+                    if (parts.Length > 1) secondName = parts[1];
+                    if (parts.Length > 2) thirdName = parts[2];
+                    if (parts.Length > 3)
+                        lastName = string.Join(" ", parts, 3, parts.Length - 3);
+                }
+
+                return new People(PersonID, firstName, secondName, thirdName, lastName,
+                    Address, DateOfBirth, NationalNo, Phone, Email, Gender, ImagePath, NationalityCountryID);
+            }
+
+            return null;
+        }
+
         private bool _AddNewPerson()
         {
             this.PersonID = PeopleData.AddNewPerson(this.FirstName, this.SecondName,

@@ -14,5 +14,6 @@ namespace DVDL
             Form PeopleManage = new FrmManagePeople();
             PeopleManage.ShowDialog();
         }
+
     }
 }
