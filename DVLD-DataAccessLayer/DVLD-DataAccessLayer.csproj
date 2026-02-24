@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Entities\CountriesData.cs" />
     <Compile Include="Configuration\DataAccessSettings.cs" />
-    <Compile Include="Entities\Users.cs" />
+    <Compile Include="Entities\UsersData.cs" />
     <Compile Include="Helpers\LoggingHelper.cs" />
     <Compile Include="Entities\PeopleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
