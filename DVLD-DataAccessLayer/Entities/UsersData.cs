@@ -2,9 +2,9 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DVLD_DataAccessLayer.Entities
+namespace DVLD_DataAccessLayer
 {
-    internal class Users
+    public class UsersData
     {
         public static bool GetUserByID
             (int UserID, ref int PersonID, ref string UserName, ref string Password, ref short IsActive)

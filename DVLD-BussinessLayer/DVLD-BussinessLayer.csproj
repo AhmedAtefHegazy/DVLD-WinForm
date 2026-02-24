@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Countries.cs" />
     <Compile Include="Controllers\People.cs" />
+    <Compile Include="Controllers\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
