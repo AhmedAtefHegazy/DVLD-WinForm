@@ -255,5 +255,36 @@ namespace DVLD_DataAccessLayer
             return IsUserExist;
         }
 
+        public static bool IsUserCredintalsValid(string UserName, string Password)
+        {
+            bool IsUserCredintalsValid = false;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string Query = @"Select 1 FROM Users WHERE UserName=@UserName And Password=@Password ";
+
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddWithValue("@UserName", UserName);
+            Command.Parameters.AddWithValue("@Password", Password);
+
+            try
+            {
+                Connection.Open();
+                object Result = Command.ExecuteScalar();
+
+                IsUserCredintalsValid = (Result != null);
+            }
+            catch (Exception ex)
+            {
+
+                LoggingHelper.LogError(ex, "Users_Data-IsUserCredintalsValid");
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return IsUserCredintalsValid;
+        }
+
     }
 }

@@ -2,7 +2,7 @@
 
 namespace DVLD_BussinessLayer.Controllers
 {
-    internal class Users
+    public class Users
     {
         public int UserID { get; set; }
         public int PersonID { get; set; }
@@ -82,9 +82,14 @@ namespace DVLD_BussinessLayer.Controllers
             return (DVLD_DataAccessLayer.UsersData.DeleteUser(UserID));
         }
 
-        public bool IsUserExist(int UserID)
+        public static bool IsUserExist(int UserID)
         {
             return (DVLD_DataAccessLayer.UsersData.IsUserExist(UserID));
+        }
+
+        public static bool IsUserCredintalsValid(string UserName, string Password)
+        {
+            return (DVLD_DataAccessLayer.UsersData.IsUserCredintalsValid(UserName, Password));
         }
 
         public DataTable GetAllUsers()

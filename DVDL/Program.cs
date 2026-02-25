@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using DVDL.Forms.Users.Forms;
 
 namespace DVDL
 {
@@ -13,7 +14,7 @@ namespace DVDL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            Application.Run(new LoginForm());
         }
     }
 }
