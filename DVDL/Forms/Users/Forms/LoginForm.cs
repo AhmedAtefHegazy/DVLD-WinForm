@@ -22,24 +22,20 @@ namespace DVDL.Forms.Users.Forms
                 string UserName = Registry.GetValue(RegistryKeyPath, UserNameValue, null) as string;
                 string Password = Registry.GetValue(RegistryKeyPath, PasswordValue, null) as string;
 
-                if (UserName != null)
+                if (UserName != null && Password != null)
                 {
                     Console.WriteLine($"The value of UserName is: {UserName}");
-                }
-
-                else if (Password != null)
-                {
                     Console.WriteLine($"The value of Password is: {Password}");
+
+                    tbUserName.Text = UserName;
+                    tbPassword.Text = Password;
+                    CBRememberMe.Checked = true;
                 }
 
                 else
                 {
                     Console.WriteLine($"Value {UserNameValue} or {PasswordValue} not found in the registry");
                 }
-
-                tbUserName.Text = UserName;
-                tbPassword.Text = Password;
-                CBRememberMe.Checked = true;
             }
 
             catch (Exception ex)
@@ -51,16 +47,59 @@ namespace DVDL.Forms.Users.Forms
 
         private void SaveLoginInfoInRegistry(string UserName, string Password, bool IsTheButtonChecked)
         {
-            try
+            if (IsTheButtonChecked)
             {
-                Registry.SetValue(RegistryKeyPath, "UserName", UserName);
-                Console.WriteLine($"Value {UserName} Successfully written to the Registry.");
-                Registry.SetValue(RegistryKeyPath, "Password", Password);
-                Console.WriteLine($"Value {Password} Successfully written to the Registry.");
+                try
+                {
+
+                    if (Registry.GetValue(RegistryKeyPath, UserNameValue, null) == null)
+                    {
+                        Registry.SetValue(RegistryKeyPath, "UserName", UserName);
+                        Console.WriteLine($"Value {UserName} Successfully written to the Registry.");
+                        Registry.SetValue(RegistryKeyPath, "Password", Password);
+                        Console.WriteLine($"Value {Password} Successfully written to the Registry.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error accourd: {ex.Message}");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine($"An error accourd: {ex.Message}");
+                try
+                {
+
+                    string NormalizedRegistryKeyPath = @"SOFTWARE\DVDL";
+                    // Open the registry key in read/write mode with explicit registry view
+                    using (RegistryKey baseKey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
+                    {
+                        using (RegistryKey key = baseKey.OpenSubKey(NormalizedRegistryKeyPath, true))
+                        {
+                            if (key != null)
+                            {
+                                // Delete the specified value
+                                key.DeleteValue(UserNameValue);
+                                key.DeleteValue(PasswordValue);
+
+                                Console.WriteLine($"Successfully deleted value '{UserNameValue}' and '{PasswordValue}' from registry key '{NormalizedRegistryKeyPath}'");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Registry key '{NormalizedRegistryKeyPath}' not found");
+                            }
+                        }
+                    }
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Console.WriteLine("UnauthorizedAccessException: Run the program with administrative privileges.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
+
             }
         }
 
