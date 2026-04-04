@@ -15,5 +15,9 @@ namespace DVDL
             PeopleManage.ShowDialog();
         }
 
+        private void signOutToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

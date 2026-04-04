@@ -55,10 +55,10 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Image = global::DVDL.Properties.Resources.sign_in_32;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(759, 480);
+            this.btnLogin.Location = new System.Drawing.Point(759, 352);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(117, 34);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -71,6 +71,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 34);
             this.btnClose.TabIndex = 1;
+            this.btnClose.TabStop = false;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -81,7 +82,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.DarkOrange;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 526);
+            this.pictureBox1.Size = new System.Drawing.Size(393, 398);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -141,7 +142,7 @@
             this.tbUserName.Location = new System.Drawing.Point(604, 177);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(200, 26);
-            this.tbUserName.TabIndex = 7;
+            this.tbUserName.TabIndex = 1;
             // 
             // tbPassword
             // 
@@ -150,16 +151,16 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(200, 26);
-            this.tbPassword.TabIndex = 7;
+            this.tbPassword.TabIndex = 2;
             // 
             // CBRememberMe
             // 
             this.CBRememberMe.AutoSize = true;
             this.CBRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBRememberMe.Location = new System.Drawing.Point(438, 485);
+            this.CBRememberMe.Location = new System.Drawing.Point(604, 357);
             this.CBRememberMe.Name = "CBRememberMe";
             this.CBRememberMe.Size = new System.Drawing.Size(137, 24);
-            this.CBRememberMe.TabIndex = 8;
+            this.CBRememberMe.TabIndex = 4;
             this.CBRememberMe.Text = "Remember Me.";
             this.CBRememberMe.UseVisualStyleBackColor = true;
             // 
@@ -227,10 +228,10 @@
             // 
             this.CBShowPassword.AutoSize = true;
             this.CBShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBShowPassword.Location = new System.Drawing.Point(604, 279);
+            this.CBShowPassword.Location = new System.Drawing.Point(604, 269);
             this.CBShowPassword.Name = "CBShowPassword";
             this.CBShowPassword.Size = new System.Drawing.Size(141, 24);
-            this.CBShowPassword.TabIndex = 8;
+            this.CBShowPassword.TabIndex = 3;
             this.CBShowPassword.Text = "Show Password";
             this.CBShowPassword.UseVisualStyleBackColor = true;
             this.CBShowPassword.CheckedChanged += new System.EventHandler(this.CBShowPassword_CheckedChanged);
@@ -240,7 +241,7 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 526);
+            this.ClientSize = new System.Drawing.Size(888, 398);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
@@ -262,6 +263,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
